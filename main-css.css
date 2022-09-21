@@ -1,0 +1,10 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: lightgray;
+    margin: auto;
+    margin-top: 60px;
+    width: 900px;
+}
