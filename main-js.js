@@ -143,6 +143,6 @@ document.getElementById('sealine').addEventListener('mousedown', function (event
     positionYEnd = event.pageY;
 })
 
-function lerp (start, end, amt){
-    return (1-amt)*start+amt*end
-  }
+function lerp(start, end, amt) {
+    return (1-amt) * start + amt * end
+}
