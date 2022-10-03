@@ -4,8 +4,6 @@
     user-select: none;
 }
 
-
-
 body {
     margin: auto;
     width: 100%;
@@ -79,4 +77,12 @@ body {
     color: white;
     padding: 0;
     margin: 0;
+}
+
+#marker {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
 }

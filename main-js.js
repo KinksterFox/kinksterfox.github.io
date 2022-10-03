@@ -122,6 +122,10 @@ window.addEventListener('load', function () {
                     speedY = lerp (speedY, 0, 0.04);
                 }
             }
+
+            if (speedXDisplay == 0 && speedYDisplay == 0) {
+                clearMarker();
+            }
         }
 
         // Transform Submarine
@@ -138,11 +142,36 @@ window.addEventListener('load', function () {
     setInterval(float, 7.14);
 })
 
-document.getElementById('sealine').addEventListener('mousedown', function (event) {
-    positionXEnd = event.pageX;
-    positionYEnd = event.pageY;
+document.getElementById('sealine').addEventListener('click', function (event) {
+    positionXEnd = event.x;
+    positionYEnd = event.y;
+    drawMarker();
 })
 
 function lerp(start, end, amt) {
     return (1-amt) * start + amt * end
+}
+
+// Canvas
+const canvas = document.getElementById('marker');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+window.addEventListener('resize', function() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+})
+
+function drawMarker() {
+    clearMarker();
+
+    ctx.fillStyle = 'red';
+    ctx.beginPath();
+    ctx.arc(positionXEnd, positionYEnd, 10, 0, Math.PI * 2);
+    ctx.fill();
+}
+    
+function clearMarker() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
