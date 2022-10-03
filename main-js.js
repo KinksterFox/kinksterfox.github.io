@@ -6,21 +6,19 @@ let sub = document.getElementById('sub');
 let positionX = 860;
 let positionXEnd = positionX;
 let positionXRange;
-let positionXRangeDisplay = positionXRange;
+let positionXBig = 0, positionXSmall = 0;
 let positionXDisplay = positionX;
 let destinationXDisplay = positionXEnd;
-let positionXBig = 0, positionXSmall = 0;
 
 let positionY = 280;
 let positionYEnd = positionY;
 let positionYRange;
-let positionYRangeDisplay = positionYRange;
+let positionYBig = 0, positionYSmall = 0;
 let positionYDisplay = positionY;
 let destinationYDisplay = positionYEnd;
-let positionYBig = 0, positionYSmall = 0;
 
-let speedX = 0, speedXMax = 10; accelX = 0.02
-let speedY = 0; speedYMax = 2; accelY = 0.01
+let speedX = 0, speedXMax = 6, accelX = 0.02;
+let speedY = 0, speedYMax = 2, accelY = 0.01;
 let speedXDisplay = speedX;
 let speedYDisplay = speedY;
 
@@ -32,11 +30,9 @@ window.addEventListener('load', function () {
         // Dashboard
         positionXDisplay = Math.round(positionX);
         destinationXDisplay = Math.round(positionXEnd);
-        positionXRangeDisplay = Math.round(positionXRange);
 
         positionYDisplay = Math.round(positionY);
         destinationYDisplay = Math.round(positionYEnd);
-        positionYRangeDisplay = Math.round(positionYRange);
 
         speedXDisplay = Math.round(speedX * 100) / 100;
         speedYDisplay = Math.round(speedY * 100) / 100;
