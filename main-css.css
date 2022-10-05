@@ -1,88 +1,115 @@
 * {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    -webkit-user-select: none;
-    user-select: none;
-}
-
-body {
-    margin: auto;
-    width: 100%;
     overflow: hidden;
 }
 
-#grid {
-    background: url(images/grid.png) repeat;
-    opacity: 0.025;
-    position: absolute;
+body {
+    background-color: black;
     margin: auto;
     width: 100%;
     height: 100%;
+
 }
 
-#sealine {
-    border-top: 10px solid aqua;
-    background-color: rgba(0, 255, 255, 0.25);
-    position: absolute;
-    top: 240px;
+main {
+    margin: auto;
+    padding: 0;
     width: 100%;
     height: 100%;
-    z-index: 5;
 }
 
-#dashboard {
-    background-color: black;
-    color: azure;
-    position: absolute;
-    left: 200px;
-    width: 400px;
-    height: 100px;
-    border-radius: 0 0 30px 30px;
-}
+#bgCanvas {
+    background-image: linear-gradient(to bottom, rgb(20, 0, 20), rgb(56, 0, 56), rgb(20, 0, 20));
+    background-size: 200%;
 
-.meter {
-    margin-top: 8px;
-    margin-left: 40px;
-}
-
-#sub {
-    position: absolute;
-
-}
-
-#subGraphic {
-    background-image: url(images/submarine.svg);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    position: absolute;
-    top: -100px;
-    left: -200px;
-    width: 400px;
-    height: 200px;
-    color: white;
-    padding: 0;
-    margin: 0;
-}
-
-#subText {
-    background-image: url(images/submarine-text.svg);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    position: absolute;
-    top: -87px;
-    left: -170px;
-    width: 400px;
-    height: 200px;
-    color: white;
-    padding: 0;
-    margin: 0;
-}
-
-#marker {
     position: absolute;
     width: 100%;
     height: 100%;
-    top: 0;
-    left: 0;
+
+    animation: shimmer 8s linear infinite;
+}
+
+.container {
+    position: absolute;
+    top: 330px;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+
+    overflow: visible;
+
+    animation: roll 8s ease-in-out infinite forwards;
+}
+
+#blur {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    background-image: url(images/Profile\ Picture\ -\ Circle.png);
+    background-size: contain;
+    
+    animation: glow 8s ease-in-out infinite forwards;
+}
+
+#iconCanvas {
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+}
+
+#typeLogo {
+    position: absolute;
+    top: 760px;
+    left: 50%;
+    
+    transform: translate(-50%, -50%);
+    filter: drop-shadow(0 0 10px black);
+
+    animation: fadeinout 8s ease-in-out infinite forwards;
+}
+
+@keyframes roll {
+    0%      {left: -25%; transform: rotate(-180deg);}
+    25%     {left: 45%; transform: rotate(0deg);}
+    75%     {left: 55%; transform: rotate(0deg);}
+    100%    {left: 125%; transform: rotate(180deg);}
+}
+
+
+@keyframes fadeinout {
+    0%      {opacity: 0; top: 1100px;}
+    25%     {opacity: 1; top: 760px;}
+    75%     {opacity: 1; top: 760px;}
+    100%    {opacity: 0; top: 1100px;}
+}
+
+@keyframes shimmer {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes glow {
+    0%      {
+        opacity: 0;
+    }
+    25%     {
+        opacity: 1;
+        filter: blur(30px);
+    }
+    75%     {
+        opacity: 0.4;
+        filter: blur(30px);
+    }
+    100%    {
+        opacity: 0;
+    }
 }

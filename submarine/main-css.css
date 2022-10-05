@@ -1,0 +1,88 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+body {
+    margin: auto;
+    width: 100%;
+    overflow: hidden;
+}
+
+#grid {
+    background: url(images/grid.png) repeat;
+    opacity: 0.025;
+    position: absolute;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+}
+
+#sealine {
+    border-top: 10px solid aqua;
+    background-color: rgba(0, 255, 255, 0.25);
+    position: absolute;
+    top: 240px;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+}
+
+#dashboard {
+    background-color: black;
+    color: azure;
+    position: absolute;
+    left: 200px;
+    width: 400px;
+    height: 100px;
+    border-radius: 0 0 30px 30px;
+}
+
+.meter {
+    margin-top: 8px;
+    margin-left: 40px;
+}
+
+#sub {
+    position: absolute;
+
+}
+
+#subGraphic {
+    background-image: url(images/submarine.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    position: absolute;
+    top: -100px;
+    left: -200px;
+    width: 400px;
+    height: 200px;
+    color: white;
+    padding: 0;
+    margin: 0;
+}
+
+#subText {
+    background-image: url(images/submarine-text.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    position: absolute;
+    top: -87px;
+    left: -170px;
+    width: 400px;
+    height: 200px;
+    color: white;
+    padding: 0;
+    margin: 0;
+}
+
+#marker {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
