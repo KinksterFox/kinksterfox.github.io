@@ -1,26 +1,47 @@
+// HUD
+const speedometer = document.getElementById('speedometer');
+const coordinates = document.getElementById('coordinates');
+
+// Sub
+const sub = document.getElementById('sub');
+
+const subP = {};
+subP['transform'] = {
+    width: 400,
+    height: 200,
+    x: 860,
+    y: 260,
+    angle: 0
+}
+
+subP['destination'] = {
+    x: subP.transform.x,
+    y: subP.transform.y
+}
+subP['speed'] = {
+    x: 0,
+    y: 0,
+
+    xMax: 6,
+    yMax: 2,
+
+    xAccel: 0.02,
+    yAccel: 0.01
+}
+
 // Initialization
-let speedometer = document.getElementById('speedometer');
-let position = document.getElementById('position');
-let sub = document.getElementById('sub');
+let transformXBig = 0, transformXSmall = 0;
+let transformXRange;
+let transformXDisplay = subP.transform.x;
+let destinationXDisplay = subP.destination.x;
 
-let positionX = 860;
-let positionXEnd = positionX;
-let positionXRange;
-let positionXBig = 0, positionXSmall = 0;
-let positionXDisplay = positionX;
-let destinationXDisplay = positionXEnd;
+let transformYBig = 0, transformYSmall = 0;
+let transformYRange;
+let transformYDisplay = subP.transform.y;
+let destinationYDisplay = subP.destination.y;
 
-let positionY = 280;
-let positionYEnd = positionY;
-let positionYRange;
-let positionYBig = 0, positionYSmall = 0;
-let positionYDisplay = positionY;
-let destinationYDisplay = positionYEnd;
-
-let speedX = 0, speedXMax = 6, accelX = 0.02;
-let speedY = 0, speedYMax = 2, accelY = 0.01;
-let speedXDisplay = speedX;
-let speedYDisplay = speedY;
+let speedXDisplay = subP.speed.x;
+let speedYDisplay = subP.speed.y;;
 
 let angle;
 
@@ -28,98 +49,98 @@ window.addEventListener('load', function () {
 
     function float () {
         // Dashboard
-        positionXDisplay = Math.round(positionX);
-        destinationXDisplay = Math.round(positionXEnd);
+        transformXDisplay = Math.round(subP.transform.x);
+        destinationXDisplay = Math.round(subP.destination.x);
 
-        positionYDisplay = Math.round(positionY);
-        destinationYDisplay = Math.round(positionYEnd);
+        transformYDisplay = Math.round(subP.transform.y);
+        destinationYDisplay = Math.round(subP.transform.y);
 
-        speedXDisplay = Math.round(speedX * 100) / 100;
-        speedYDisplay = Math.round(speedY * 100) / 100;
+        speedXDisplay = Math.round(subP.speed.x * 100) / 100;
+        speedYDisplay = Math.round(subP.speed.y * 100) / 100;
         
-        position.innerHTML = `Position XY (${positionXDisplay} , ${positionYDisplay}) Destination: (${destinationXDisplay} , ${destinationYDisplay})`;
+        coordinates.innerHTML = `transform XY (${transformXDisplay} , ${transformYDisplay}) Destination: (${destinationXDisplay} , ${destinationYDisplay})`;
         speedometer.innerHTML = `Horizontal Speed ${speedXDisplay} <br> Vertical Speed ${speedYDisplay}`;
 
         // Horizontal Movement
-        positionX += Math.round(speedX * 100) / 100;
+        subP.transform.x += Math.round(subP.speed.x * 100) / 100;
 
-        if (speedX <= speedXMax && speedX >= -speedXMax) {
-            speedX += Math.round(accelX * 100) / 100;
+        if (subP.speed.x <= subP.speed.xMax && subP.speed.x >= -subP.speed.xMax) {
+            subP.speed.x += Math.round(subP.speed.xAccel * 100) / 100;
         }
-        if (speedX > speedXMax) {
-            speedX = speedXMax;
+        if (subP.speed.x > subP.speed.xMax) {
+            subP.speed.x = subP.speed.xMax;
         }
-        if (speedX < -speedXMax) {
-            speedX = -speedXMax;
+        if (subP.speed.x < -subP.speed.xMax) {
+            subP.speed.x = -subP.speed.xMax;
         }
 
-        sub.style.left = positionX + 'px';
+        sub.style.left = subP.transform.x + 'px';
 
-        if (positionX > positionXEnd) {
-            positionXSmall = positionXEnd
-            positionXBig = positionX
+        if (subP.transform.x > subP.destination.x) {
+            transformXSmall = subP.destination.x
+            transformXBig = subP.transform.x
         } else {
-            positionXSmall = positionX
-            positionXBig = positionXEnd
+            transformXSmall = subP.transform.x
+            transformXBig = subP.destination.x
         }
-        positionXRange = (positionXBig - positionXSmall);
+        transformXRange = (transformXBig - transformXSmall);
 
-        // Ease In Out
-        if (positionX < positionXEnd) {
-            accelX = 0.02 * (positionXRange * 0.01);
+        // Acceleration
+        if (subP.transform.x < subP.destination.x) {
+            subP.speed.xAccel = 0.02 * (transformXRange * 0.01);
         }
-        if (positionX > positionXEnd) {
-            accelX = -0.02 * (positionXRange * 0.01);
+        if (subP.transform.x > subP.destination.x) {
+            subP.speed.xAccel = -0.02 * (transformXRange * 0.01);
         }
 
         // Vertical Movement
-        positionY += Math.round(speedY * 100) / 100;
+        subP.transform.y += Math.round(subP.speed.y * 100) / 100;
 
-        if (speedY <= speedYMax && speedY >= -speedYMax) {
-            speedY += Math.round(accelY * 100) / 100;
+        if (subP.speed.y <= subP.speed.yMax && subP.speed.y >= -subP.speed.yMax) {
+            subP.speed.y += Math.round(subP.speed.yAccel * 100) / 100;
         }
-        if (speedY > speedYMax) {
-            speedY = speedYMax;
+        if (subP.speed.y > subP.speed.yMax) {
+            subP.speed.y = subP.speed.yMax;
         }
-        if (speedY < -speedYMax) {
-            speedY = -speedYMax;
+        if (subP.speed.y < -subP.speed.yMax) {
+            subP.speed.y = -subP.speed.yMax;
         }
 
-        sub.style.top = positionY + 'px';
+        sub.style.top = subP.transform.y + 'px';
         
-        if (positionY > positionYEnd) {
-            positionYSmall = positionYEnd
-            positionYBig = positionY
+        if (subP.transform.y > subP.destination.y) {
+            transformYSmall = subP.destination.y
+            transformYBig = subP.transform.y
         } else {
-            positionYSmall = positionY
-            positionYBig = positionYEnd
+            transformYSmall = subP.transform.y
+            transformYBig = subP.destination.y
         }
-        positionYRange = (positionYBig - positionYSmall);
+        transformYRange = (transformYBig - transformYSmall);
 
         // Ease In Out
-        if (positionY < positionYEnd) {
-            accelY = 0.01 * positionYRange * 0.01;
+        if (subP.transform.y < subP.destination.y) {
+            subP.speed.yAccel = 0.01 * transformYRange * 0.01;
         }
-        if (positionY > positionYEnd) {
-            accelY = -0.01 * positionYRange * 0.01;
+        if (subP.transform.y > subP.destination.y) {
+            subP.speed.yAccel = -0.01 * transformYRange * 0.01;
         }
 
         // Brake
-        if (positionXRange < 300 || positionXRange < 100) {
-            if (positionXRange < 10 && positionYRange < 10) {
-                speedX = 0;
-                speedY = 0;
+        if (transformXRange < 300 || transformXRange < 100) {
+            if (transformXRange < 10 && transformYRange < 10) {
+                subP.speed.x = 0;
+                subP.speed.y = 0;
             }
             
-            if (positionXRange < 300) {
-                if (speedX != 0) {
-                    speedX = lerp (speedX, 0, 0.06);
+            if (transformXRange < 300) {
+                if (subP.speed.x != 0) {
+                    subP.speed.x = lerp(subP.speed.x, 0, 0.06);
                 }
             }
 
-            if (positionYRange < 75) {
-                if (speedY != 0) {
-                    speedY = lerp (speedY, 0, 0.04);
+            if (transformYRange < 75) {
+                if (subP.speed.y != 0) {
+                    subP.speed.y = lerp(subP.speed.y, 0, 0.04);
                 }
             }
 
@@ -129,22 +150,22 @@ window.addEventListener('load', function () {
         }
 
         // Transform Submarine
-        angle = speedY * 5;
+        subP.transform.angle = subP.speed.y * 5;
 
-        if (speedX < 0) {
-            sub.style.transform = `scaleX(-1)  rotate(${angle}deg)`
+        if (subP.speed.x < 0) {
+            sub.style.transform = `scaleX(-1)  rotate(${subP.transform.angle}deg)`
             sub.lastElementChild.style.transform = `scaleX(-1)`
         } else {
-            sub.style.transform = `scaleX(1)  rotate(${angle}deg)`
+            sub.style.transform = `scaleX(1)  rotate(${subP.transform.angle}deg)`
             sub.lastElementChild.style.transform = `scaleX(1)`
         }
     }
     setInterval(float, 7.14);
 })
 
-document.getElementById('sealine').addEventListener('click', function (event) {
-    positionXEnd = event.x;
-    positionYEnd = event.y;
+document.getElementById('sealine').addEventListener('click', (event) => {
+    subP.destination.x = event.x;
+    subP.destination.y = event.y;
     drawMarker();
 })
 
@@ -158,7 +179,7 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-window.addEventListener('resize', function() {
+window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 })
@@ -168,10 +189,66 @@ function drawMarker() {
 
     ctx.fillStyle = 'red';
     ctx.beginPath();
-    ctx.arc(positionXEnd, positionYEnd, 10, 0, Math.PI * 2);
+    ctx.arc(subP.destination.x, subP.destination.y, 10, 0, Math.PI * 2);
     ctx.fill();
 }
     
 function clearMarker() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
+
+/* // Canvas Game
+let myGamePiece;
+
+function startGame() {
+    myGamePiece = new component();
+    myGameArea.start();
+}
+
+const myGameArea = {
+    canvas: document.createElement("canvas"),
+
+    start: function() {
+        this.canvas.width = window.innerWidth;
+        this.canvas.height = window.innerHeight;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.frameNo = 0;
+        this.interval = setInterval(updateGameArea, 7.14);
+    },
+
+    clear: function() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    },
+    
+    stop: function () {
+        this.clear(this.interval);
+    }
+}
+
+function component() {
+    this.image = new Image();
+    this.image.src = "images/submarine.svg";
+    this.width = subP.transform.width;
+    this.height = subP.transform.height;
+    this.x = subP.transform.x;
+    this.y = subP.transform.y;
+
+    this.update = function() {
+        ctx = myGameArea.context;
+        ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
+    }
+
+    this.newPos = function() {
+        this.x += subP.speed.xAccel;
+        this.y += subP.speed.yAccel;        
+    }
+}
+
+function updateGameArea() {
+    myGameArea.clear();
+    myGamePiece.newPos();
+    myGamePiece.update();
+}
+
+window.addEventListener('load', startGame()) */
