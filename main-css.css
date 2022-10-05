@@ -4,10 +4,6 @@
 
 body {
     background-color: black;
-    margin: auto;
-    width: 100%;
-    height: 100%;
-
     overflow: hidden;
 }
 
@@ -65,7 +61,7 @@ main {
     left: 50%;
     
     transform: translate(-50%, -50%);
-    filter: drop-shadow(0 0 10px black);
+    filter: drop-shadow(0 0 5px white);
 
     animation: fadeinout 8s ease-in-out infinite forwards;
 }
