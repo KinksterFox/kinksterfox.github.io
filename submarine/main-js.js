@@ -9,7 +9,7 @@ const subP = {};
 subP['transform'] = {
     width: 400,
     height: 200,
-    x: 860,
+    x: window.innerWidth * 0.5,
     y: 260,
     angle: 0
 }
@@ -47,7 +47,7 @@ let angle;
 
 window.addEventListener('load', function () {
 
-    function float () {
+    function float() {
         // Dashboard
         transformXDisplay = Math.round(subP.transform.x);
         destinationXDisplay = Math.round(subP.destination.x);
@@ -57,8 +57,8 @@ window.addEventListener('load', function () {
 
         speedXDisplay = Math.round(subP.speed.x * 100) / 100;
         speedYDisplay = Math.round(subP.speed.y * 100) / 100;
-        
-        coordinates.innerHTML = `transform XY (${transformXDisplay} , ${transformYDisplay}) Destination: (${destinationXDisplay} , ${destinationYDisplay})`;
+
+        coordinates.innerHTML = `Current XY (${transformXDisplay} , ${transformYDisplay}) Destination: (${destinationXDisplay} , ${destinationYDisplay})`;
         speedometer.innerHTML = `Horizontal Speed ${speedXDisplay} <br> Vertical Speed ${speedYDisplay}`;
 
         // Horizontal Movement
@@ -107,7 +107,7 @@ window.addEventListener('load', function () {
         }
 
         sub.style.top = subP.transform.y + 'px';
-        
+
         if (subP.transform.y > subP.destination.y) {
             transformYSmall = subP.destination.y
             transformYBig = subP.transform.y
@@ -131,7 +131,7 @@ window.addEventListener('load', function () {
                 subP.speed.x = 0;
                 subP.speed.y = 0;
             }
-            
+
             if (transformXRange < 300) {
                 if (subP.speed.x != 0) {
                     subP.speed.x = lerp(subP.speed.x, 0, 0.06);
@@ -170,7 +170,7 @@ document.getElementById('sealine').addEventListener('click', (event) => {
 })
 
 function lerp(start, end, amt) {
-    return (1-amt) * start + amt * end
+    return (1 - amt) * start + amt * end
 }
 
 // Canvas
@@ -192,7 +192,7 @@ function drawMarker() {
     ctx.arc(subP.destination.x, subP.destination.y, 10, 0, Math.PI * 2);
     ctx.fill();
 }
-    
+
 function clearMarker() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
