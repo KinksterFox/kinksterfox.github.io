@@ -20,5 +20,5 @@ iconCtx.fill();
 iconCtx.stroke();
 
 img.addEventListener('load', () => {
-    iconCtx.drawImage (img, 0, 0, 500, 500)
+    iconCtx.drawImage(img, 0, 0, 500, 500)
 });

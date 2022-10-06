@@ -4,7 +4,8 @@
     overflow: hidden;
 }
 
-html, body {
+html,
+body {
     background-color: black;
     overflow: hidden;
     margin: 0;
@@ -57,7 +58,7 @@ main {
     height: 500px;
     background-image: url(images/Profile\ Picture\ -\ Circle.png);
     background-size: contain;
-    
+
     animation: glow 8s ease-in-out infinite forwards;
 }
 
@@ -65,7 +66,7 @@ main {
     position: absolute;
     top: 760px;
     left: 50%;
-    
+
     transform: translate(-50%, -50%);
     filter: drop-shadow(0 0 5px white);
 
@@ -100,7 +101,7 @@ a {
 a:hover {
     color: #a20bb7;
     text-decoration: underline;
-    
+
     animation: textglow 2s ease-in-out infinite alternate;
 }
 
@@ -113,60 +114,100 @@ a:hover {
     font-family: Michroma;
     color: white;
     opacity: 0.2;
+
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 @keyframes roll {
-    0%      {left: -25%; transform: rotate(-180deg);}
-    25%     {left: 45%; transform: rotate(0deg);}
-    75%     {left: 55%; transform: rotate(0deg);}
-    100%    {left: 125%; transform: rotate(180deg);}
+    0% {
+        left: -25%;
+        transform: rotate(-180deg);
+    }
+
+    25% {
+        left: 45%;
+        transform: rotate(0deg);
+    }
+
+    75% {
+        left: 55%;
+        transform: rotate(0deg);
+    }
+
+    100% {
+        left: 125%;
+        transform: rotate(180deg);
+    }
 }
 
 
 @keyframes fadeinout {
-    0%      {opacity: 0; top: 1100px;}
-    25%     {opacity: 1; top: 760px;}
-    75%     {opacity: 1; top: 760px;}
-    100%    {opacity: 0; top: 1100px;}
+    0% {
+        opacity: 0;
+        top: 1100px;
+    }
+
+    25% {
+        opacity: 1;
+        top: 760px;
+    }
+
+    75% {
+        opacity: 1;
+        top: 760px;
+    }
+
+    100% {
+        opacity: 0;
+        top: 1100px;
+    }
 }
 
 @keyframes shimmer {
     0% {
         opacity: 0;
     }
+
     50% {
         opacity: 1;
     }
+
     100% {
         opacity: 0;
     }
 }
 
 @keyframes glow {
-    0%      {
+    0% {
         opacity: 0;
     }
-    25%     {
+
+    25% {
         opacity: 1;
         filter: blur(30px);
     }
-    75%     {
+
+    75% {
         opacity: 0.4;
         filter: blur(30px);
     }
-    100%    {
+
+    100% {
         opacity: 0;
     }
 }
 
 @keyframes textglow {
-    0%      {
+    0% {
         text-shadow: none;
     }
-    50%     {
+
+    50% {
         text-shadow: 0 0 7px #d568e4;
     }
-    100%    {
+
+    100% {
         text-shadow: none;
     }
 }
