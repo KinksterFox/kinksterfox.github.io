@@ -2,6 +2,9 @@
 
 * {
     overflow: hidden;
+
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 html,
@@ -114,9 +117,6 @@ a:hover {
     font-family: Michroma;
     color: white;
     opacity: 0.2;
-
-    -webkit-user-select: none;
-    user-select: none;
 }
 
 @keyframes roll {
