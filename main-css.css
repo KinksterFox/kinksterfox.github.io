@@ -86,14 +86,23 @@ footer {
     width: 100%;
 }
 
-#projects {
-    display: flex;
-    flex-direction: column;
-    padding: 30px;
-    margin: 0;
+ul {
+    list-style-type: none;
 }
 
-a {
+#projects {
+    display: flex;
+    padding: 30px;
+    margin: 0;
+    align-items: flex-end;
+}
+
+#projects li:not(:first-child) {
+    margin-left: 30px;
+}
+
+a,
+.nav {
     font-family: Michroma;
     font-size: 1.4rem;
     font-weight: 600;
@@ -106,6 +115,26 @@ a:hover {
     text-decoration: underline;
 
     animation: textglow 2s ease-in-out infinite alternate;
+}
+
+.sub-menu {
+    display: flex;
+    flex-direction: column-reverse;
+    transition: height 1.5s;
+    height: 32px;
+    text-align: center;
+}
+
+.sub-menu:hover {
+    height: 120px;
+}
+
+.sub-menu ul {
+    padding: 0;
+}
+
+.sub-menu li {
+    margin-left: 0;
 }
 
 #footnote {
