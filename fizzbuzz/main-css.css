@@ -1,0 +1,61 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+body {
+    background-color: white;
+    margin: auto;
+    width: 100%;
+}
+
+main {
+    margin: auto;
+    padding: 80px 120px;
+    width: 900px;
+    background-color: blanchedalmond;
+}
+
+#startScreen {
+    text-align: center;
+}
+
+#startButton {
+    width: 120px;
+    height: 40px;
+}
+
+#exitButton {
+    width: 120px;
+    height: 40px;
+}
+
+#gameScreen {
+    text-align: center;
+}
+
+#wordsDisplay {
+    height: 24px;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 5px;
+    text-align: center;
+}
+
+.choice {
+    width: 80px;
+    height: 30px;
+}
+
+.correct {
+    background-color: rgb(130, 255, 130) !important;
+}
+
+.incorrect {
+    background-color: rgb(255, 130, 130) !important;
+}
+
+.hide {
+    display: none;
+}
