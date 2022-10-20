@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: white;
+    background-color: black;
     margin: auto;
     width: 100%;
 }
@@ -14,7 +14,8 @@ main {
     margin: auto;
     padding: 80px 120px;
     width: 900px;
-    background-color: blanchedalmond;
+    background-color: hsla(0, 0%, 100%, 0.1);
+    color: white;
 }
 
 #startScreen {
@@ -37,8 +38,7 @@ main {
 
 #wordsDisplay {
     height: 24px;
-    background-color: white;
-    border: 1px solid #ccc;
+    background-color: hsla(0, 0%, 100%, 0.1);
     padding: 5px;
     text-align: center;
 }

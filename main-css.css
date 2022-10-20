@@ -120,13 +120,15 @@ a:hover {
 .sub-menu {
     display: flex;
     flex-direction: column-reverse;
-    transition: height 1.5s;
+    transition: 1.5s;
     height: 32px;
     text-align: center;
+    border-top: 1px white solid;
 }
 
 .sub-menu:hover {
-    height: 120px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
 }
 
 .sub-menu ul {
@@ -134,7 +136,7 @@ a:hover {
 }
 
 .sub-menu li {
-    margin-left: 0;
+    margin-left: 0 !important;
 }
 
 #footnote {

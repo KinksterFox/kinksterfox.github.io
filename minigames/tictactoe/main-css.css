@@ -1,6 +1,7 @@
 * {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     user-select: none;
+    -webkit-user-select: none;
 }
 
 body {
@@ -11,10 +12,10 @@ body {
 
 main {
     display: flex;
-
     margin: auto;
     padding: 80px 120px;
     width: 900px;
+    background-color: hsla(0, 0%, 100%, 0.1);
 }
 
 .grid-container {
