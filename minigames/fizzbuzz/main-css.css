@@ -58,11 +58,11 @@ main {
 }
 
 .correct {
-    background-color: rgb(130, 255, 130) !important;
+    background-color: hsl(120, 100%, 25%) !important;
 }
 
 .incorrect {
-    background-color: rgb(255, 130, 130) !important;
+    background-color: hsl(0, 100%, 25%) !important;
 }
 
 .hide {

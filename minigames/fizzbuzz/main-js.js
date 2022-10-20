@@ -33,7 +33,7 @@ submitButton.addEventListener('click', handleSubmit);
 nextButton.addEventListener('click', nextNumber);
 
 window.addEventListener('load', () => {
-    submitButton.disabled = true;
+    nextButton.disabled = true;
 })
 
 function switchScreen() {
@@ -46,23 +46,60 @@ function switchScreen() {
         startScreen.removeAttribute("class");
         currentScreen = "startscreen";
 
-        updateHighScore()
+        resetGame();
     }
 }
 
 function addWord(word) {
     words += word;
     wordsDisplay.innerHTML = words;
-
-    submitButton.disabled = false;
 }
 
 function handleSubmit() {
-    
+    if ((currentNumber % 3) == 0) {
+        if (words == "Fizz") {
+            answerCorrect();
+        } else {
+            answerIncorrect();
+            wordsDisplay.innerHTML = "Fizz";
+        }
+    }
 
-    words = "";
-    wordsDisplay.innerHTML = "";
+    if ((currentNumber % 5) == 0) {
+        if (words == "Buzz") {
+            answerCorrect();
+        } else {
+            answerIncorrect();
+            wordsDisplay.innerHTML = "Buzz";
+        }
+    }
 
+    if ((currentNumber % 3) == 0 && (currentNumber % 5) == 0) {
+        if (words == "FizzBuzz") {
+            answerCorrect();
+            console.log("error correct")
+        } else {
+            answerIncorrect();
+            wordsDisplay.innerHTML = "FizzBuzz";
+            console.log("error incorrect")
+        }
+    }
+
+    if ((currentNumber % 3) != 0 || (currentNumber % 5) != 0) {
+        if (words == "") {
+            answerCorrect();
+        }
+    }
+
+    if ((currentNumber % 3) == 0 || (currentNumber % 5) == 0) {
+        if (words == "") {
+            answerIncorrect();
+        }
+    }
+
+    fizzButton.disabled = true;
+    buzzButton.disabled = true;
+    submitButton.disabled = true;
     nextButton.disabled = false;
 }
 
@@ -70,12 +107,14 @@ function nextNumber() {
     currentNumber = Math.round(Math.random() * 30);
     numberDisplay.innerHTML = currentNumber;
 
+    words = "";
+    wordsDisplay.innerHTML = "";
     wordsDisplay.removeAttribute("class");
-    submitButton.disabled = true;
-}
 
-function answerIncorrect() {
-    wordsDisplay.setAttribute("class", "incorrect");
+    fizzButton.disabled = false;
+    buzzButton.disabled = false;
+    submitButton.disabled = false;
+    nextButton.disabled = true;
 }
 
 function answerCorrect() {
@@ -83,6 +122,10 @@ function answerCorrect() {
 
     currentScore++;
     currentScoreDisplay.innerHTML = `Score: ${currentScore}`;
+}
+
+function answerIncorrect() {
+    wordsDisplay.setAttribute("class", "incorrect");
 }
 
 function updateHighScore() {
@@ -93,4 +136,9 @@ function updateHighScore() {
 
     currentScore = 0;
     currentScoreDisplay.innerHTML = `Score: ${currentScore}`;
+}
+
+function resetGame() {
+    nextNumber()
+    updateHighScore()
 }
