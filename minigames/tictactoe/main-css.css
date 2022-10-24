@@ -7,6 +7,7 @@
 }
 
 body {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,6 +34,13 @@ main {
     border: 5px solid hsla(0, 0%, 100%, 0.5);
     border-radius: 10px;
     background-color: hsla(0, 0%, 100%, 0.1);
+}
+
+#backButton {
+    display: inline;
+    position: absolute;
+    left: 10px;
+    top: 10px
 }
 
 .grid-container {
@@ -91,4 +99,24 @@ main {
     100% {
         opacity: 0;
     }
+}
+
+input[type="button"] {
+    min-width: 80px;
+    min-height: 40px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+
+    background-color: hsla(0, 0%, 100%, 0.1);
+    color: white;
+}
+
+input[type="button"]:not(:disabled):hover {
+    background-color: hsla(0, 0%, 100%, 0.2);
+}
+
+input:disabled {
+    color: gray;
+    background-color: hsla(0, 0%, 50%, 0.1);
 }
