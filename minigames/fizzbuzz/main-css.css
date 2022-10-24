@@ -115,11 +115,11 @@ main {
 }
 
 .correct {
-    background-color: hsl(120, 100%, 25%) !important;
+    background-color: hsla(120, 100%, 80%, 0.5) !important;
 }
 
 .incorrect {
-    background-color: hsl(0, 100%, 25%) !important;
+    background-color: hsl(0, 100%, 80%, 0.5) !important;
 }
 
 .hide {
