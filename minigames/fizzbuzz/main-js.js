@@ -1,9 +1,9 @@
+// Screen
 const startScreen = document.getElementById('startScreen');
+const optionsScreen = document.getElementById('optionsScreen');
 const gameScreen = document.getElementById('gameScreen');
 
-const startButton = document.getElementById('startButton')
-const exitButton = document.getElementById('exitButton');
-
+// UI
 const attemptsUI = document.getElementById('attemptsUI');
 const currentScoreUI = document.getElementById('currentScoreUI');
 const lastScoreUI = document.getElementById('lastScoreUI')
@@ -11,32 +11,29 @@ const highScoreUI = document.getElementById('highScoreUI');
 const numberUI = document.getElementById('numberUI');
 const wordsUI = document.getElementById('wordsUI');
 
+// Buttons
+const startButton = document.getElementById('startButton')
+const optionsButton = document.getElementById('optionsButton')
+const exitOptions = document.getElementById('exitOptions')
+const exitGame = document.getElementById('exitGame');
+
 const fizzButton = document.getElementById('fizzButton');
 const buzzButton = document.getElementById('buzzButton');
 const submitButton = document.getElementById('submitButton');
 const nextButton = document.getElementById('nextButton');
 
 startButton.addEventListener('click', switchScreen);
-exitButton.addEventListener('click', switchScreen);
+exitGame.addEventListener('click', switchScreen);
 
-fizzButton.addEventListener('click', () => { addWord(fizzButton.value); });
-buzzButton.addEventListener('click', () => { addWord(buzzButton.value); });
-submitButton.addEventListener('click', handleSubmit);
-nextButton.addEventListener('click', nextNumber);
+optionsButton.addEventListener('click', () => {
+    startScreen.setAttribute("class", "hide");
+    optionsScreen.removeAttribute("class");
+});
 
-const gameState = {
-    currentScreen: startScreen,
-    currentScore: 0,
-    currentHighScore: 0,
-    attemptsLeft: 3,
-    currentNumber: 0,
-    words: "",
-}
-
-if (localStorage.getItem("currentHighScore")) {
-    gameState.currentHighScore = localStorage.getItem("currentHighScore");
-    highScoreUI.innerHTML = `High Score: ${gameState.currentHighScore}`;
-}
+exitOptions.addEventListener('click', () => {
+    optionsScreen.setAttribute("class", "hide");
+    startScreen.removeAttribute("class");
+})
 
 function switchScreen() {
     if (gameState.currentScreen == startScreen) {
@@ -54,8 +51,30 @@ function switchScreen() {
     }
 }
 
+fizzButton.addEventListener('click', () => { addWord(fizzButton.value); });
+buzzButton.addEventListener('click', () => { addWord(buzzButton.value); });
+submitButton.addEventListener('click', handleSubmit);
+nextButton.addEventListener('click', nextNumber);
+
+// Game State & Gameplay
+
+const gameState = {
+    currentScreen: startScreen,
+    currentScore: 0,
+    currentHighScore: 0,
+    attemptsLeft: 3,
+    currentNumber: 0,
+    numberRange: 30,
+    words: "",
+}
+
+if (localStorage.getItem("currentHighScore")) {
+    gameState.currentHighScore = localStorage.getItem("currentHighScore");
+    highScoreUI.innerHTML = `High Score: ${gameState.currentHighScore}`;
+}
+
 function nextNumber() {
-    gameState.currentNumber = Math.ceil(Math.random() * 30);
+    gameState.currentNumber = Math.ceil(Math.random() * gameState.numberRange);
     numberUI.innerHTML = gameState.currentNumber;
 
     gameState.words = "";
@@ -110,12 +129,6 @@ function handleSubmit() {
             wordsUI.innerHTML = "";
         }
     }
-
-    /*     if ((gameState.currentNumber % 3) == 0 || (gameState.currentNumber % 5) == 0) {
-            if (gameState.words == "") {
-                answerIncorrect();
-            }
-        } */
 
     fizzButton.disabled = true;
     buzzButton.disabled = true;

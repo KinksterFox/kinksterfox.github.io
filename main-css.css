@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
 
 * {
+    font-family: Michroma;
     overflow: hidden;
-
     -webkit-user-select: none;
     user-select: none;
 }
@@ -103,7 +103,6 @@ ul {
 
 a,
 .nav {
-    font-family: Michroma;
     font-size: 1.4rem;
     font-weight: 600;
     text-decoration: none;
@@ -145,7 +144,6 @@ a:hover {
     padding: 30px;
     margin: 0;
 
-    font-family: Michroma;
     color: white;
     opacity: 0.2;
 }

@@ -13,15 +13,33 @@
     <div id="bg"></div>
     <main>
         <div id="startScreen">
-            <div id="menu">
-                <h1>FizzBuzz</h1>
-                <button id="startButton">Start Game</button>
+            <h1>FizzBuzz</h1>
+            <div id="mainMenu">
+                <input type="button" id="startButton" class="menuButton" value="Start Game"><br>
+                <input type="button" id="optionsButton" class="menuButton" value="Options Menu">
             </div>
 
             <div id="scores">
                 <h2 id="lastScoreUI"></h2>
                 <h2 id="highScoreUI">High Score: 0</h2>
             </div>
+        </div>
+
+        <div id="optionsScreen" class="hide">
+            <div id="optionsMenu">
+                <h1>Options Menu is in construction</h1>
+
+                <label for="numberRange">Number Range:</label><br>
+                <input type="text" id="numberRange" name="numberRange" placeholder="30"><br>
+
+                <br>
+
+                <input type="button" id="" class="difficultyButton" value="FizzBuzz"><br>
+                <input type="button" id="" class="difficultyButton" value="FooBar"><br>
+                <input type="button" id="" class="difficultyButton" value="FizzBuzzFooBar">
+            </div>
+
+            <input type="button" id="exitOptions" value="Back to Menu">
         </div>
 
         <div id="gameScreen" class="hide">
@@ -35,17 +53,19 @@
                 <h3 id="wordsUI"></h3>
 
                 <div>
-                    <input type="button" id="fizzButton" class="choice" value="Fizz">
-                    <input type="button" id="buzzButton" class="choice" value="Buzz">
+                    <input type="button" id="fizzButton" class="gameButton" value="Fizz">
+                    <input type="button" id="buzzButton" class="gameButton" value="Buzz">
                 </div>
+
                 <br>
+
                 <div>
-                    <input type="button" id="submitButton" value="Submit">
-                    <input type="button" id="nextButton" value="Next" disabled>
+                    <input type="button" id="submitButton" class="gameButton" value="Submit">
+                    <input type="button" id="nextButton" class="gameButton" value="Next" disabled>
                 </div>
             </div>
 
-            <input type="button" id="exitButton" value="Exit">
+            <input type="button" id="exitGame" value="Exit">
         </div>
     </main>
 </body>
