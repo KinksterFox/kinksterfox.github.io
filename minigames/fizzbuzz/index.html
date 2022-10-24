@@ -10,30 +10,42 @@
 </head>
 
 <body>
+    <div id="bg"></div>
     <main>
         <div id="startScreen">
-            <h1>FizzBuzz</h1>
-            <button id="startButton">Start Game</button>
-
-            <h2 id="highScoreDisplay">High Score: 0</h2>
-        </div>
-        
-        <div id="gameScreen" class="hide">
-            <h1 id="numberDisplay">5</h1>
-            <h3 id="wordsDisplay"></h3>
-
-            <div>
-                <button id="fizzButton" class="choice">Fizz</button>
-                <button id="buzzButton" class="choice">Buzz</button>
-            </div><br>
-
-            <div>
-                <button id="submitButton">Submit</button>
-                <button id="nextButton">Next</button>
+            <div id="menu">
+                <h1>FizzBuzz</h1>
+                <button id="startButton">Start Game</button>
             </div>
 
-            <h2 id="currentScoreDisplay">Score: 0</h2>
-            <button id="exitButton">Exit</button>
+            <div id="scores">
+                <h2 id="lastScoreUI"></h2>
+                <h2 id="highScoreUI">High Score: 0</h2>
+            </div>
+        </div>
+
+        <div id="gameScreen" class="hide">
+            <div id="HUD">
+                <h2 id="attemptsUI">♥♥♥</h2>
+                <h2 id="currentScoreUI">Score: 0</h2>
+            </div>
+
+            <div id="game">
+                <h1 id="numberUI">5</h1>
+                <h3 id="wordsUI"></h3>
+
+                <div>
+                    <input type="button" id="fizzButton" class="choice" value="Fizz">
+                    <input type="button" id="buzzButton" class="choice" value="Buzz">
+                </div>
+                <br>
+                <div>
+                    <input type="button" id="submitButton" value="Submit">
+                    <input type="button" id="nextButton" value="Next" disabled>
+                </div>
+            </div>
+
+            <input type="button" id="exitButton" value="Exit">
         </div>
     </main>
 </body>

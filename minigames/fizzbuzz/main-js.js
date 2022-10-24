@@ -1,23 +1,15 @@
 const startScreen = document.getElementById('startScreen');
 const gameScreen = document.getElementById('gameScreen');
-let currentScreen = "startscreen";
 
 const startButton = document.getElementById('startButton')
 const exitButton = document.getElementById('exitButton');
 
-const currentScoreDisplay = document.getElementById('currentScoreDisplay');
-const highScoreDisplay = document.getElementById('highScoreDisplay');
-let currentScore = 0;
-let currentHighScore = 0;
-
-const attemptsDisplay = document.getElementById('attemptsDisplay');
-let attemptsLeft = 3;
-
-const numberDisplay = document.getElementById('numberDisplay');
-let currentNumber = 0;
-
-const wordsDisplay = document.getElementById('wordsDisplay');
-let words = "";
+const attemptsUI = document.getElementById('attemptsUI');
+const currentScoreUI = document.getElementById('currentScoreUI');
+const lastScoreUI = document.getElementById('lastScoreUI')
+const highScoreUI = document.getElementById('highScoreUI');
+const numberUI = document.getElementById('numberUI');
+const wordsUI = document.getElementById('wordsUI');
 
 const fizzButton = document.getElementById('fizzButton');
 const buzzButton = document.getElementById('buzzButton');
@@ -27,89 +19,43 @@ const nextButton = document.getElementById('nextButton');
 startButton.addEventListener('click', switchScreen);
 exitButton.addEventListener('click', switchScreen);
 
-fizzButton.addEventListener('click', () => { addWord('Fizz'); });
-buzzButton.addEventListener('click', () => { addWord('Buzz'); });
+fizzButton.addEventListener('click', () => { addWord(fizzButton.value); });
+buzzButton.addEventListener('click', () => { addWord(buzzButton.value); });
 submitButton.addEventListener('click', handleSubmit);
 nextButton.addEventListener('click', nextNumber);
 
-window.addEventListener('load', () => {
-    nextButton.disabled = true;
-})
+const gameState = {
+    currentScreen: startScreen,
+    currentScore: 0,
+    currentHighScore: 0,
+    attemptsLeft: 3,
+    currentNumber: 0,
+    words: "",
+}
 
 function switchScreen() {
-    if (currentScreen == "startscreen") {
+    if (gameState.currentScreen == startScreen) {
         startScreen.setAttribute("class", "hide");
         gameScreen.removeAttribute("class");
-        currentScreen = "gamescreen";
+        gameState.currentScreen = gameScreen;
+
+        resetGame();
     } else {
         gameScreen.setAttribute("class", "hide")
         startScreen.removeAttribute("class");
-        currentScreen = "startscreen";
+        gameState.currentScreen = startScreen;
 
         resetGame();
     }
 }
 
-function addWord(word) {
-    words += word;
-    wordsDisplay.innerHTML = words;
-}
-
-function handleSubmit() {
-    if ((currentNumber % 3) == 0) {
-        if (words == "Fizz") {
-            answerCorrect();
-        } else {
-            answerIncorrect();
-            wordsDisplay.innerHTML = "Fizz";
-        }
-    }
-
-    if ((currentNumber % 5) == 0) {
-        if (words == "Buzz") {
-            answerCorrect();
-        } else {
-            answerIncorrect();
-            wordsDisplay.innerHTML = "Buzz";
-        }
-    }
-
-    if ((currentNumber % 3) == 0 && (currentNumber % 5) == 0) {
-        if (words == "FizzBuzz") {
-            answerCorrect();
-            console.log("error correct")
-        } else {
-            answerIncorrect();
-            wordsDisplay.innerHTML = "FizzBuzz";
-            console.log("error incorrect")
-        }
-    }
-
-    if ((currentNumber % 3) != 0 || (currentNumber % 5) != 0) {
-        if (words == "") {
-            answerCorrect();
-        }
-    }
-
-    if ((currentNumber % 3) == 0 || (currentNumber % 5) == 0) {
-        if (words == "") {
-            answerIncorrect();
-        }
-    }
-
-    fizzButton.disabled = true;
-    buzzButton.disabled = true;
-    submitButton.disabled = true;
-    nextButton.disabled = false;
-}
-
 function nextNumber() {
-    currentNumber = Math.round(Math.random() * 30);
-    numberDisplay.innerHTML = currentNumber;
+    gameState.currentNumber = Math.ceil(Math.random() * 30);
+    numberUI.innerHTML = gameState.currentNumber;
 
-    words = "";
-    wordsDisplay.innerHTML = "";
-    wordsDisplay.removeAttribute("class");
+    gameState.words = "";
+    wordsUI.innerHTML = "";
+    wordsUI.removeAttribute("class");
 
     fizzButton.disabled = false;
     buzzButton.disabled = false;
@@ -117,28 +63,97 @@ function nextNumber() {
     nextButton.disabled = true;
 }
 
-function answerCorrect() {
-    wordsDisplay.setAttribute("class", "correct");
+function addWord(word) {
+    if (gameState.words.includes(word)) {
+        gameState.words = gameState.words.replace(word, "");
+    } else {
+        gameState.words += word;
+    }
 
-    currentScore++;
-    currentScoreDisplay.innerHTML = `Score: ${currentScore}`;
+    wordsUI.innerHTML = gameState.words;
+}
+
+function handleSubmit() {
+    if ((gameState.currentNumber % 3) == 0 && (gameState.currentNumber % 5) == 0) {
+        if (gameState.words.includes("Fizz") && gameState.words.includes("Buzz")) {
+            answerCorrect();
+        } else {
+            answerIncorrect();
+            wordsUI.innerHTML = "FizzBuzz";
+        }
+    } else if ((gameState.currentNumber % 3) == 0) {
+        if (gameState.words == "Fizz") {
+            answerCorrect();
+        } else {
+            answerIncorrect();
+            wordsUI.innerHTML = "Fizz";
+        }
+    } else if ((gameState.currentNumber % 5) == 0) {
+        if (gameState.words == "Buzz") {
+            answerCorrect();
+        } else {
+            answerIncorrect();
+            wordsUI.innerHTML = "Buzz";
+        }
+    }
+
+    if ((gameState.currentNumber % 3) != 0 && (gameState.currentNumber % 5) != 0) {
+        if (gameState.words == "") {
+            answerCorrect();
+        } else {
+            answerIncorrect();
+            wordsUI.innerHTML = "";
+        }
+    }
+
+    /*     if ((gameState.currentNumber % 3) == 0 || (gameState.currentNumber % 5) == 0) {
+            if (gameState.words == "") {
+                answerIncorrect();
+            }
+        } */
+
+    fizzButton.disabled = true;
+    buzzButton.disabled = true;
+    submitButton.disabled = true;
+    nextButton.disabled = false;
+}
+
+function answerCorrect() {
+    wordsUI.setAttribute("class", "correct");
+
+    gameState.currentScore++;
+    currentScoreUI.innerHTML = `Score: ${gameState.currentScore}`;
 }
 
 function answerIncorrect() {
-    wordsDisplay.setAttribute("class", "incorrect");
+    wordsUI.setAttribute("class", "incorrect");
+
+    attemptsUI.innerHTML = attemptsUI.innerHTML.slice(1, attemptsUI.innerHTML.length);
+    gameState.attemptsLeft--;
+
+    if (gameState.attemptsLeft == 0) {
+        switchScreen();
+    }
 }
 
 function updateHighScore() {
-    if (currentScore > currentHighScore) {
-        currentHighScore = currentScore;
-        highScoreDisplay.innerHTML = `High Score: ${currentHighScore}`;
+    if (gameState.currentScore > gameState.currentHighScore) {
+        gameState.currentHighScore = gameState.currentScore;
+        highScoreUI.innerHTML = `New High Score: ${gameState.currentHighScore}!`;
+    } else {
+        highScoreUI.innerHTML = `High Score: ${gameState.currentHighScore}`;
     }
 
-    currentScore = 0;
-    currentScoreDisplay.innerHTML = `Score: ${currentScore}`;
+    if (gameState.currentScore != 0) {
+        lastScoreUI.innerHTML = `Last Score: ${gameState.currentScore}`;
+        gameState.currentScore = 0;
+        currentScoreUI.innerHTML = `Score: 0`;
+    }
 }
 
 function resetGame() {
-    nextNumber()
-    updateHighScore()
+    nextNumber();
+    updateHighScore();
+    gameState.attemptsLeft = 3;
+    attemptsUI.innerHTML = '♥♥♥';
 }

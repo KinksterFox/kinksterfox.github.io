@@ -1,7 +1,7 @@
 * {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    user-select: none;
     -webkit-user-select: none;
+    user-select: none;
 }
 
 body {
@@ -19,14 +19,32 @@ main {
     justify-content: center;
     align-items: center;
     margin: auto;
-    padding: 80px 120px;
+    padding: 80px;
     width: 900px;
     height: 480px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border: 5px solid hsla(0, 0%, 100%, 0.5);
+    border-radius: 10px;
     background-color: hsla(0, 0%, 100%, 0.1);
     color: white;
 }
 
 #startScreen {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+#gameScreen {
+    position: relative;
+    height: 100%;
+    width: 100%;
     text-align: center;
 }
 
@@ -36,20 +54,59 @@ main {
 }
 
 #exitButton {
+    position: absolute;
+    right: 0;
+    bottom: 0;
     width: 120px;
     height: 40px;
 }
 
-#gameScreen {
-    text-align: center;
+#menu {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-#wordsDisplay {
-    height: 24px;
-    background-color: hsla(0, 0%, 100%, 0.1);
+#scores {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+#scores h2 {
+    margin: 0;
+}
+
+#HUD {
+    display: flex;
+    justify-content: space-between;
+}
+
+#HUD h2 {
+    margin: 0;
+}
+
+#game {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#wordsUI {
+    margin-left: auto;
+    margin-right: auto;
     padding: 5px;
+    height: 24px;
+    width: 240px;
+    background-color: hsla(0, 0%, 100%, 0.1);
     text-align: center;
-    width: 720px;
+
 }
 
 .choice {
@@ -67,4 +124,30 @@ main {
 
 .hide {
     display: none;
+}
+
+#bg {
+    display: inline;
+    background-image: linear-gradient(to bottom, rgb(20, 0, 20), rgb(56, 0, 56), rgb(20, 0, 20));
+    background-size: 200%;
+
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+
+    animation: shimmer 8s linear infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }

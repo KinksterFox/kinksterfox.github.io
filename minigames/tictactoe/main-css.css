@@ -19,9 +19,17 @@ main {
     justify-content: center;
     align-items: center;
     margin: auto;
-    padding: 80px 120px;
+    padding: 80px;
     width: 900px;
     height: 480px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border: 5px solid hsla(0, 0%, 100%, 0.5);
+    border-radius: 10px;
     background-color: hsla(0, 0%, 100%, 0.1);
 }
 
@@ -57,4 +65,30 @@ main {
 
 #reset {
     margin-top: 6px;
+}
+
+#bg {
+    display: inline;
+    background-image: linear-gradient(to bottom, rgb(20, 0, 20), rgb(56, 0, 56), rgb(20, 0, 20));
+    background-size: 200%;
+
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+
+    animation: shimmer 8s linear infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
