@@ -33,6 +33,11 @@ const gameState = {
     words: "",
 }
 
+if (localStorage.getItem("currentHighScore")) {
+    gameState.currentHighScore = localStorage.getItem("currentHighScore");
+    highScoreUI.innerHTML = `High Score: ${gameState.currentHighScore}`;
+}
+
 function switchScreen() {
     if (gameState.currentScreen == startScreen) {
         startScreen.setAttribute("class", "hide");
@@ -140,6 +145,7 @@ function updateHighScore() {
     if (gameState.currentScore > gameState.currentHighScore) {
         gameState.currentHighScore = gameState.currentScore;
         highScoreUI.innerHTML = `New High Score: ${gameState.currentHighScore}!`;
+        localStorage.setItem("currentHighScore", gameState.currentHighScore)
     } else {
         highScoreUI.innerHTML = `High Score: ${gameState.currentHighScore}`;
     }
