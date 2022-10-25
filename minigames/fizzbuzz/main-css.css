@@ -23,8 +23,8 @@ main {
     align-items: center;
     margin: auto;
     padding: 80px;
-    width: 900px;
-    height: 480px;
+    width: 1000px;
+    height: 500px;
 
     position: absolute;
     top: 50%;
@@ -76,17 +76,26 @@ input[type="button"] {
     border: none;
     border-radius: 5px;
 
-    background-color: hsla(0, 0%, 100%, 0.1);
+    background-color: hsla(0, 0%, 100%, 0.2);
     color: white;
 }
 
-input[type="button"]:not(:disabled):hover {
-    background-color: hsla(0, 0%, 100%, 0.2);
+input[type="button"]:not(:disabled):not(:active):hover {
+    background-color: hsla(0, 0%, 100%, 0.35);
+}
+
+input[type="button"]:active {
+    background-color: hsla(0, 0%, 50%, 0.2);
+    outline: 2px inset gray;
 }
 
 input:disabled {
     color: gray;
-    background-color: hsla(0, 0%, 50%, 0.1);
+    background-color: hsla(0, 0%, 25%, 0.1);
+}
+
+input.toggled {
+    outline: 2px solid white;
 }
 
 .menuButton {
@@ -144,7 +153,16 @@ input:disabled {
     transform: translateY(-50%);
 }
 
-#numberRange {
+#help {
+    display: flex;
+    position: absolute;
+    right: 0;
+    width: 760px;
+
+    font-size: 14px;
+}
+
+#numberRangeOption {
     width: 120px;
     background-color: hsla(0, 0%, 100%, 0.1);
     border-radius: 5px;

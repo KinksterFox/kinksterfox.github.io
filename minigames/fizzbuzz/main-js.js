@@ -11,12 +11,25 @@ const highScoreUI = document.getElementById('highScoreUI');
 const numberUI = document.getElementById('numberUI');
 const wordsUI = document.getElementById('wordsUI');
 
-// Buttons
+// Options
+const numberRangeOption = document.getElementById('numberRangeOption')
+const fizzBuzzOption = document.getElementById('numfizzBuzzOptionberRange')
+const fooBarOption = document.getElementById('fooBarOption')
+const fizzBuzzFooBarOptions = document.getElementById('fizzBuzzFooBarOptions')
+
+numberRangeOption.addEventListener('input', () => {
+    gameState.numberRange = numberRangeOption.value;
+    localStorage.setItem("numberRange", gameState.numberRange)
+})
+
+// Menu Buttons
 const startButton = document.getElementById('startButton')
 const optionsButton = document.getElementById('optionsButton')
 const exitOptions = document.getElementById('exitOptions')
 const exitGame = document.getElementById('exitGame');
 
+
+// Game Buttons
 const fizzButton = document.getElementById('fizzButton');
 const buzzButton = document.getElementById('buzzButton');
 const submitButton = document.getElementById('submitButton');
@@ -51,13 +64,6 @@ function switchScreen() {
     }
 }
 
-fizzButton.addEventListener('click', () => { addWord(fizzButton.value); });
-buzzButton.addEventListener('click', () => { addWord(buzzButton.value); });
-submitButton.addEventListener('click', handleSubmit);
-nextButton.addEventListener('click', nextNumber);
-
-// Game State & Gameplay
-
 const gameState = {
     currentScreen: startScreen,
     currentScore: 0,
@@ -73,25 +79,37 @@ if (localStorage.getItem("currentHighScore")) {
     highScoreUI.innerHTML = `High Score: ${gameState.currentHighScore}`;
 }
 
-function nextNumber() {
-    gameState.currentNumber = Math.ceil(Math.random() * gameState.numberRange);
-    numberUI.innerHTML = gameState.currentNumber;
-
-    gameState.words = "";
-    wordsUI.innerHTML = "";
-    wordsUI.removeAttribute("class");
-
-    fizzButton.disabled = false;
-    buzzButton.disabled = false;
-    submitButton.disabled = false;
-    nextButton.disabled = true;
+if (localStorage.getItem("numberRange")) {
+    gameState.numberRange = localStorage.getItem("numberRange");
+    numberRangeOption.value = localStorage.getItem("numberRange");
 }
+
+fizzButton.addEventListener('click', () => {
+    if (gameState.words.includes(fizzButton.value)){
+        fizzButton.classList.toggle("toggled");
+    } else {
+        fizzButton.classList.toggle("toggled");
+    }
+    addWord(fizzButton.value);
+});
+buzzButton.addEventListener('click', () => {
+    if (gameState.words.includes(buzzButton.value)){
+        buzzButton.classList.toggle("toggled");
+    } else {
+        buzzButton.classList.toggle("toggled");
+    }
+    addWord(buzzButton.value);
+});
+
+submitButton.addEventListener('click', handleSubmit);
+nextButton.addEventListener('click', nextNumber);
 
 function addWord(word) {
     if (gameState.words.includes(word)) {
         gameState.words = gameState.words.replace(word, "");
     } else {
         gameState.words += word;
+
     }
 
     wordsUI.innerHTML = gameState.words;
@@ -134,6 +152,20 @@ function handleSubmit() {
     buzzButton.disabled = true;
     submitButton.disabled = true;
     nextButton.disabled = false;
+}
+
+function nextNumber() {
+    gameState.currentNumber = Math.ceil(Math.random() * gameState.numberRange);
+    numberUI.innerHTML = gameState.currentNumber;
+
+    gameState.words = "";
+    wordsUI.innerHTML = "";
+    wordsUI.removeAttribute("class");
+
+    fizzButton.disabled = false;
+    buzzButton.disabled = false;
+    submitButton.disabled = false;
+    nextButton.disabled = true;
 }
 
 function answerCorrect() {

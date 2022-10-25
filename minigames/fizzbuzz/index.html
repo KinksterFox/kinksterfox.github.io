@@ -18,7 +18,7 @@
             <h1>FizzBuzz</h1>
             <div id="mainMenu">
                 <input type="button" id="startButton" class="menuButton" value="Start Game"><br>
-                <input type="button" id="optionsButton" class="menuButton" value="Options Menu">
+                <input type="button" id="optionsButton" class="menuButton" value="Options & Help">
             </div>
 
             <div id="scores">
@@ -29,16 +29,48 @@
 
         <div id="optionsScreen" class="hide">
             <div id="optionsMenu">
-                <h1>Options Menu is under construction</h1>
-
                 <label for="numberRange">Number Range:</label><br>
-                <input type="text" id="numberRange" name="numberRange" placeholder="30"><br>
+                <input type="text" id="numberRangeOption" name="numberRangeOption" placeholder="30"><br>
 
                 <br>
 
-                <input type="button" id="" class="difficultyButton" value="FizzBuzz"><br>
-                <input type="button" id="" class="difficultyButton" value="FooBar"><br>
-                <input type="button" id="" class="difficultyButton" value="FizzBuzzFooBar">
+                <input type="button" id="fizzBuzzOption" class="difficultyButton" value="FizzBuzz"><br>
+                <input type="button" id="fooBarOption" class="difficultyButton" value="FooBar"><br>
+                <input type="button" id="fizzBuzzFooBarOptions" class="difficultyButton" value="FizzBuzzFooBar">
+            </div>
+
+            <div id="help">
+                <div>
+                    <h3>How to play</h3>
+                    <p>
+                        If a number is dividable by the given ruleset then add the word to the prompt.
+                    </p>
+                    <p>
+                        The buttons for the words are toggleable so if you make a mistake you can correct it.
+                    </p>
+                    <p>
+                        The words don't need to be in any order.
+                    </p>
+                </div>
+
+                <div>
+                    <h3>FizzBuzz</h3>
+                    <p>
+                        If a number is dividable by <strong>3</strong> then it's <strong>Fizz</strong>.<br>
+                        If a number is dividable by <strong>5</strong> then it's <strong>Buzz</strong>.<br>
+                        If they are dividable by both then it's <strong>FizzBuzz</strong>.
+                    </p>
+                    <h3>FooBar</h3>
+                    <p>
+                        If a number is dividable by <strong>7</strong> then it's <strong>Foo</strong>.<br>
+                        If a number is dividable by <strong>11</strong> then it's <strong>Bar</strong>.<br>
+                        If they are dividable by both then it's <strong>FooBar</strong>.
+                    </p>
+                    <h3>FizzBuzzFooBar</h3>
+                    <p>
+                        Just the same rules as FizzBuzz and FooBar but this time combined!
+                    </p>
+                </div>
             </div>
 
             <input type="button" id="exitOptions" value="Back to Menu">
