@@ -84,7 +84,7 @@ input[type="button"]:not(:disabled):not(:active):hover {
     background-color: hsla(0, 0%, 100%, 0.35);
 }
 
-input[type="button"]:active {
+input[type="button"]:not(:disabled):active {
     background-color: hsla(0, 0%, 50%, 0.2);
     outline: 2px inset gray;
 }

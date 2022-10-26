@@ -1,4 +1,4 @@
-// Screen
+// Screens
 const startScreen = document.getElementById('startScreen');
 const optionsScreen = document.getElementById('optionsScreen');
 const gameScreen = document.getElementById('gameScreen');
@@ -28,13 +28,6 @@ const optionsButton = document.getElementById('optionsButton')
 const exitOptions = document.getElementById('exitOptions')
 const exitGame = document.getElementById('exitGame');
 
-
-// Game Buttons
-const fizzButton = document.getElementById('fizzButton');
-const buzzButton = document.getElementById('buzzButton');
-const submitButton = document.getElementById('submitButton');
-const nextButton = document.getElementById('nextButton');
-
 startButton.addEventListener('click', switchScreen);
 exitGame.addEventListener('click', switchScreen);
 
@@ -63,6 +56,12 @@ function switchScreen() {
         resetGame();
     }
 }
+
+// Gameplay
+const fizzButton = document.getElementById('fizzButton');
+const buzzButton = document.getElementById('buzzButton');
+const submitButton = document.getElementById('submitButton');
+const nextButton = document.getElementById('nextButton');
 
 const gameState = {
     currentScreen: startScreen,
@@ -148,6 +147,9 @@ function handleSubmit() {
         }
     }
 
+    fizzButton.classList.remove("toggled")
+    buzzButton.classList.remove("toggled")
+
     fizzButton.disabled = true;
     buzzButton.disabled = true;
     submitButton.disabled = true;
@@ -205,6 +207,9 @@ function updateHighScore() {
 function resetGame() {
     nextNumber();
     updateHighScore();
+    
     gameState.attemptsLeft = 3;
     attemptsUI.innerHTML = '♥♥♥';
+    fizzButton.classList.remove("toggled")
+    buzzButton.classList.remove("toggled")
 }
