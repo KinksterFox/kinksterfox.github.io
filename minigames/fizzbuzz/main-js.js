@@ -13,13 +13,48 @@ const wordsUI = document.getElementById('wordsUI');
 
 // Options
 const numberRangeOption = document.getElementById('numberRangeOption')
-const fizzBuzzOption = document.getElementById('numfizzBuzzOptionberRange')
+const fizzBuzzOption = document.getElementById('fizzBuzzOption')
 const fooBarOption = document.getElementById('fooBarOption')
 const fizzBuzzFooBarOptions = document.getElementById('fizzBuzzFooBarOptions')
 
+const gameMode = {
+    FizzBuzz: ['Fizz', 'Buzz'],
+    FooBar: ['Foo', 'Bar'],
+    FizzBuzzFooBar: ['Fizz', 'Buzz', 'Foo', 'Bar']
+}
+
+const gameOptions = {
+    numberRange: 30,
+    currentGameMode: gameMode.FizzBuzz
+}
+
+
+
 numberRangeOption.addEventListener('input', () => {
-    gameState.numberRange = numberRangeOption.value;
-    localStorage.setItem("numberRange", gameState.numberRange)
+    gameOptions.numberRange = numberRangeOption.value;
+    localStorage.setItem("numberRange", gameOptions.numberRange);
+})
+
+fizzBuzzOption.addEventListener('click', () => {
+    if (gameOptions.currentGameMode != gameMode.FizzBuzz) {
+        gameOptions.currentGameMode = gameMode.FizzBuzz;
+        fizzBuzzOption.classList.toggle("toggled");
+        console.log(gameOptions.currentGameMode + " is now set")
+    }
+})
+fooBarOption.addEventListener('click', () => {
+    if (gameOptions.currentGameMode != gameMode.FooBar) {
+        gameOptions.currentGameMode = gameMode.FooBar;
+        fooBarOption.classList.toggle("toggled")
+        console.log(gameOptions.currentGameMode + " is now set")
+    }
+})
+fizzBuzzFooBarOptions.addEventListener('click', () => {
+    if (gameOptions.currentGameMode != gameMode.FizzBuzzFooBar) {
+        gameOptions.currentGameMode = gameMode.FizzBuzzFooBar;
+        fizzBuzzFooBarOptions.classList.toggle("toggled");
+        console.log(gameOptions.currentGameMode + " is now set")
+    }
 })
 
 // Menu Buttons
@@ -69,7 +104,6 @@ const gameState = {
     currentHighScore: 0,
     attemptsLeft: 3,
     currentNumber: 0,
-    numberRange: 30,
     words: "",
 }
 
@@ -79,12 +113,12 @@ if (localStorage.getItem("currentHighScore")) {
 }
 
 if (localStorage.getItem("numberRange")) {
-    gameState.numberRange = localStorage.getItem("numberRange");
+    gameOptions.numberRange = localStorage.getItem("numberRange");
     numberRangeOption.value = localStorage.getItem("numberRange");
 }
 
 fizzButton.addEventListener('click', () => {
-    if (gameState.words.includes(fizzButton.value)){
+    if (gameState.words.includes(fizzButton.value)) {
         fizzButton.classList.toggle("toggled");
     } else {
         fizzButton.classList.toggle("toggled");
@@ -92,7 +126,7 @@ fizzButton.addEventListener('click', () => {
     addWord(fizzButton.value);
 });
 buzzButton.addEventListener('click', () => {
-    if (gameState.words.includes(buzzButton.value)){
+    if (gameState.words.includes(buzzButton.value)) {
         buzzButton.classList.toggle("toggled");
     } else {
         buzzButton.classList.toggle("toggled");
@@ -157,7 +191,7 @@ function handleSubmit() {
 }
 
 function nextNumber() {
-    gameState.currentNumber = Math.ceil(Math.random() * gameState.numberRange);
+    gameState.currentNumber = Math.ceil(Math.random() * gameOptions.numberRange);
     numberUI.innerHTML = gameState.currentNumber;
 
     gameState.words = "";
@@ -207,7 +241,7 @@ function updateHighScore() {
 function resetGame() {
     nextNumber();
     updateHighScore();
-    
+
     gameState.attemptsLeft = 3;
     attemptsUI.innerHTML = '♥♥♥';
     fizzButton.classList.remove("toggled")
