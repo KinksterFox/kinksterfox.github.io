@@ -4,47 +4,6 @@ body {
     overflow: hidden;
 }
 
-.iconRoot {
-    position: absolute;
-    top: 330px;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-
-    overflow: visible;
-
-    animation: roll 8s ease-in-out infinite forwards;
-}
-
-#iconCanvas {
-    transform: translate(-50%, -50%);
-    /* width: 500px; */
-    height: 500px;
-    border-radius: 50%;
-}
-
-#blur {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    width: 500px;
-    height: 500px;
-    background-image: url(images/Profile\ Picture\ -\ Circle.png);
-    background-size: contain;
-
-    animation: glow 8s ease-in-out infinite forwards;
-}
-
-#typeLogo {
-    position: absolute;
-    top: 760px;
-    left: 50%;
-
-    transform: translate(-50%, -50%);
-    filter: drop-shadow(0 0 5px white);
-
-    animation: fadeinout 8s ease-in-out infinite forwards;
-}
-
 footer {
     display: flex;
     justify-content: space-between;
@@ -57,6 +16,13 @@ footer {
 
 ul {
     list-style-type: none;
+}
+
+#brand {
+    display: inline;
+    position: absolute;
+    left: 10px;
+    top: 10px
 }
 
 #projects {
@@ -117,6 +83,47 @@ a:hover {
 
     color: white;
     opacity: 0.2;
+}
+
+.iconRoot {
+    position: absolute;
+    top: 330px;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+
+    overflow: visible;
+
+    animation: roll 8s ease-in-out infinite forwards;
+}
+
+#iconCanvas {
+    transform: translate(-50%, -50%);
+    /* width: 500px; */
+    height: 500px;
+    border-radius: 50%;
+}
+
+#blur {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    background-image: url(images/Profile\ Picture\ -\ Circle.png);
+    background-size: contain;
+
+    animation: glow 8s ease-in-out infinite forwards;
+}
+
+#typeLogo {
+    position: absolute;
+    top: 760px;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+    filter: drop-shadow(0 0 5px white);
+
+    animation: fadeinout 8s ease-in-out infinite forwards;
 }
 
 @keyframes roll {
