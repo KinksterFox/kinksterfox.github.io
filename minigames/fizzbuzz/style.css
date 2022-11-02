@@ -1,48 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
-
-* {
-    font-family: Michroma;
-    -webkit-user-select: none;
-    user-select: none;
-}
-
-body {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-    margin: auto;
-    width: 100vw;
-    height: 100vh;
-}
-
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    padding: 80px;
-    width: 1000px;
-    height: 500px;
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    border: 5px solid hsla(0, 0%, 100%, 0.5);
-    border-radius: 10px;
-    background-color: hsla(0, 0%, 100%, 0.1);
-    color: white;
-}
-
-#backButton {
-    display: inline;
-    position: absolute;
-    left: 10px;
-    top: 10px
-}
+@import "/main-style.css";
+@import "/game-style.css";
 
 #startScreen {
     position: relative;
@@ -67,35 +24,6 @@ h1 {
     height: 100%;
     width: 100%;
     text-align: center;
-}
-
-input[type="button"] {
-    min-width: 80px;
-    min-height: 40px;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-
-    background-color: hsla(0, 0%, 100%, 0.2);
-    color: white;
-}
-
-input[type="button"]:not(:disabled):not(:active):hover {
-    background-color: hsla(0, 0%, 100%, 0.35);
-}
-
-input[type="button"]:not(:disabled):active {
-    background-color: hsla(0, 0%, 50%, 0.2);
-    outline: 2px inset gray;
-}
-
-input:disabled {
-    color: gray;
-    background-color: hsla(0, 0%, 25%, 0.1);
-}
-
-input.toggled {
-    outline: 2px solid white;
 }
 
 .menuButton {
@@ -157,18 +85,13 @@ input.toggled {
     display: flex;
     position: absolute;
     right: 0;
-    width: 760px;
+    width: 900px;
 
     font-size: 14px;
 }
 
-#numberRangeOption {
-    width: 120px;
-    background-color: hsla(0, 0%, 100%, 0.1);
-    border-radius: 5px;
-    color: white;
-    border: none;
-    text-align: center;
+#help div {
+    padding: 0 12px;
 }
 
 #exitOptions {
@@ -217,31 +140,4 @@ input.toggled {
 
 .hide {
     display: none;
-}
-
-#bg {
-    display: inline;
-    background-image: linear-gradient(to bottom, rgb(20, 0, 20), rgb(56, 0, 56), rgb(20, 0, 20));
-    background-size: 200%;
-
-    position: absolute;
-    margin: 0;
-    width: 100vw;
-    height: 100vh;
-
-    animation: shimmer 8s linear infinite;
-}
-
-@keyframes shimmer {
-    0% {
-        opacity: 0;
-    }
-
-    50% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
 }

@@ -1,0 +1,199 @@
+@import "/main-style.css";
+
+body {
+    overflow: hidden;
+}
+
+.iconRoot {
+    position: absolute;
+    top: 330px;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+
+    overflow: visible;
+
+    animation: roll 8s ease-in-out infinite forwards;
+}
+
+#iconCanvas {
+    transform: translate(-50%, -50%);
+    /* width: 500px; */
+    height: 500px;
+    border-radius: 50%;
+}
+
+#blur {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    background-image: url(images/Profile\ Picture\ -\ Circle.png);
+    background-size: contain;
+
+    animation: glow 8s ease-in-out infinite forwards;
+}
+
+#typeLogo {
+    position: absolute;
+    top: 760px;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+    filter: drop-shadow(0 0 5px white);
+
+    animation: fadeinout 8s ease-in-out infinite forwards;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+ul {
+    list-style-type: none;
+}
+
+#projects {
+    display: flex;
+    padding: 30px;
+    margin: 0;
+    align-items: flex-end;
+}
+
+#projects li:not(:first-child) {
+    margin-left: 30px;
+}
+
+a,
+.nav {
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    color: #a20bb7;
+    text-decoration: underline;
+
+    animation: textglow 2s ease-in-out infinite alternate;
+}
+
+.sub-menu {
+    display: flex;
+    flex-direction: column-reverse;
+    transition: 1.5s;
+    height: 32px;
+    text-align: center;
+    border-top: 1px white solid;
+    overflow: hidden;
+}
+
+.sub-menu:hover {
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    border-top: 3px white solid;
+}
+
+.sub-menu ul {
+    padding: 0;
+}
+
+.sub-menu li {
+    margin-left: 0 !important;
+}
+
+#footnote {
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 30px;
+    margin: 0;
+
+    color: white;
+    opacity: 0.2;
+}
+
+@keyframes roll {
+    0% {
+        left: -25%;
+        transform: rotate(-180deg);
+    }
+
+    25% {
+        left: 45%;
+        transform: rotate(0deg);
+    }
+
+    75% {
+        left: 55%;
+        transform: rotate(0deg);
+    }
+
+    100% {
+        left: 125%;
+        transform: rotate(180deg);
+    }
+}
+
+
+@keyframes fadeinout {
+    0% {
+        opacity: 0;
+        top: 1100px;
+    }
+
+    25% {
+        opacity: 1;
+        top: 760px;
+    }
+
+    75% {
+        opacity: 1;
+        top: 760px;
+    }
+
+    100% {
+        opacity: 0;
+        top: 1100px;
+    }
+}
+
+@keyframes glow {
+    0% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 1;
+        filter: blur(30px);
+    }
+
+    75% {
+        opacity: 0.4;
+        filter: blur(30px);
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes textglow {
+    0% {
+        text-shadow: none;
+    }
+
+    50% {
+        text-shadow: 0 0 7px #d568e4;
+    }
+
+    100% {
+        text-shadow: none;
+    }
+}

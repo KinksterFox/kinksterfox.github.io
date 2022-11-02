@@ -2,196 +2,76 @@
 
 * {
     font-family: Michroma;
-    overflow: hidden;
     -webkit-user-select: none;
     user-select: none;
 }
 
-html,
 body {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: black;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-    max-width: 100%;
-    height: 100%;
+    margin: auto;
+    width: 100vw;
+    height: 100vh;
 }
 
-main {
-    max-width: 100%;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
+input[type="text"] {
+    width: 120px;
+    background-color: hsla(0, 0%, 100%, 0.1);
+    border-radius: 5px;
+    color: white;
+    border: none;
+    text-align: center;
+}
+
+input[type="button"] {
+    min-width: 80px;
+    min-height: 40px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+
+    background-color: hsla(0, 0%, 100%, 0.2);
+    color: white;
+}
+
+input[type="button"]:not(:disabled):not(:active):hover {
+    background-color: hsla(0, 0%, 100%, 0.35);
+}
+
+input[type="button"]:not(:disabled):active {
+    background-color: hsla(0, 0%, 50%, 0.2);
+    outline: 2px inset gray;
+}
+
+input:disabled {
+    color: gray;
+    background-color: hsla(0, 0%, 25%, 0.1);
+}
+
+input.toggled {
+    outline: 2px solid white;
+}
+
+#backButton {
+    display: inline;
+    position: absolute;
+    left: 10px;
+    top: 10px
 }
 
 #bg {
+    display: inline;
     background-image: linear-gradient(to bottom, rgb(20, 0, 20), rgb(56, 0, 56), rgb(20, 0, 20));
     background-size: 200%;
 
     margin: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
 
     animation: shimmer 8s linear infinite;
-}
-
-.iconRoot {
-    position: absolute;
-    top: 330px;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-
-    overflow: visible;
-
-    animation: roll 8s ease-in-out infinite forwards;
-}
-
-#iconCanvas {
-    transform: translate(-50%, -50%);
-    /* width: 500px; */
-    height: 500px;
-    border-radius: 50%;
-}
-
-#blur {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    width: 500px;
-    height: 500px;
-    background-image: url(images/Profile\ Picture\ -\ Circle.png);
-    background-size: contain;
-
-    animation: glow 8s ease-in-out infinite forwards;
-}
-
-#typeLogo {
-    position: absolute;
-    top: 760px;
-    left: 50%;
-
-    transform: translate(-50%, -50%);
-    filter: drop-shadow(0 0 5px white);
-
-    animation: fadeinout 8s ease-in-out infinite forwards;
-}
-
-footer {
-    display: flex;
-    justify-content: space-between;
-
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-}
-
-ul {
-    list-style-type: none;
-}
-
-#projects {
-    display: flex;
-    padding: 30px;
-    margin: 0;
-    align-items: flex-end;
-}
-
-#projects li:not(:first-child) {
-    margin-left: 30px;
-}
-
-a,
-.nav {
-    font-size: 1.4rem;
-    font-weight: 600;
-    text-decoration: none;
-    color: white;
-}
-
-a:hover {
-    color: #a20bb7;
-    text-decoration: underline;
-
-    animation: textglow 2s ease-in-out infinite alternate;
-}
-
-.sub-menu {
-    display: flex;
-    flex-direction: column-reverse;
-    transition: 1.5s;
-    height: 32px;
-    text-align: center;
-    border-top: 1px white solid;
-}
-
-.sub-menu:hover {
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.75);
-    border-top: 3px white solid;
-}
-
-.sub-menu ul {
-    padding: 0;
-}
-
-.sub-menu li {
-    margin-left: 0 !important;
-}
-
-#footnote {
-    display: flex;
-    flex-direction: column-reverse;
-    padding: 30px;
-    margin: 0;
-
-    color: white;
-    opacity: 0.2;
-}
-
-@keyframes roll {
-    0% {
-        left: -25%;
-        transform: rotate(-180deg);
-    }
-
-    25% {
-        left: 45%;
-        transform: rotate(0deg);
-    }
-
-    75% {
-        left: 55%;
-        transform: rotate(0deg);
-    }
-
-    100% {
-        left: 125%;
-        transform: rotate(180deg);
-    }
-}
-
-
-@keyframes fadeinout {
-    0% {
-        opacity: 0;
-        top: 1100px;
-    }
-
-    25% {
-        opacity: 1;
-        top: 760px;
-    }
-
-    75% {
-        opacity: 1;
-        top: 760px;
-    }
-
-    100% {
-        opacity: 0;
-        top: 1100px;
-    }
 }
 
 @keyframes shimmer {
@@ -205,39 +85,5 @@ a:hover {
 
     100% {
         opacity: 0;
-    }
-}
-
-@keyframes glow {
-    0% {
-        opacity: 0;
-    }
-
-    25% {
-        opacity: 1;
-        filter: blur(30px);
-    }
-
-    75% {
-        opacity: 0.4;
-        filter: blur(30px);
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-
-@keyframes textglow {
-    0% {
-        text-shadow: none;
-    }
-
-    50% {
-        text-shadow: 0 0 7px #d568e4;
-    }
-
-    100% {
-        text-shadow: none;
     }
 }
