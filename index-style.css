@@ -53,18 +53,35 @@ a:hover {
 
 .sub-menu {
     display: flex;
+    position: relative;
     flex-direction: column-reverse;
-    transition: 1.5s;
     height: 32px;
     text-align: center;
-    border-top: 1px white solid;
+    /* border-top: 1px white solid; */
     overflow: hidden;
+    transition: 1.5s;
 }
 
 .sub-menu:hover {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.75);
-    border-top: 3px white solid;
+    /* border-top: 3px white solid; */
+}
+
+.sub-menu::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 25%;
+    height: 1px;
+    background-color: white;
+    transform: translateX(-50%);
+    transition: 1.5s;
+}
+
+.sub-menu:hover::after {
+    width: 100%;
 }
 
 .sub-menu ul {
