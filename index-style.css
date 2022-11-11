@@ -36,21 +36,6 @@ ul {
     margin-left: 30px;
 }
 
-a,
-.nav {
-    font-size: 1.4rem;
-    font-weight: 600;
-    text-decoration: none;
-    color: white;
-}
-
-a:hover {
-    color: #a20bb7;
-    text-decoration: underline;
-
-    animation: textglow 2s ease-in-out infinite alternate;
-}
-
 .sub-menu {
     display: flex;
     position: relative;
@@ -98,13 +83,23 @@ a:hover {
     padding: 30px;
     margin: 0;
 
-    color: white;
-    opacity: 0.2;
+    color: hsla(0, 0%, 100%, 0.20);
 }
 
-.iconRoot {
+#animationContainer {
     position: absolute;
-    top: 330px;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+/*     max-width: 100vw;
+    max-height: 100vh; */
+    width: 100%;
+    height: 100%;
+}
+
+#iconRoot {
+    position: absolute;
+    top: 35%;
     width: 0;
     height: 0;
     border-radius: 50%;
@@ -115,9 +110,9 @@ a:hover {
 }
 
 #iconCanvas {
+    box-sizing: border-box;
     transform: translate(-50%, -50%);
-    /* width: 500px; */
-    height: 500px;
+    max-width: 500px;
     border-radius: 50%;
 }
 
@@ -134,11 +129,8 @@ a:hover {
 
 #typeLogo {
     position: absolute;
-    top: 760px;
-    left: 50%;
-
+    top: 77%;
     transform: translate(-50%, -50%);
-    filter: drop-shadow(0 0 5px white);
 
     animation: fadeinout 8s ease-in-out infinite forwards;
 }
@@ -165,26 +157,25 @@ a:hover {
     }
 }
 
-
 @keyframes fadeinout {
     0% {
         opacity: 0;
-        top: 1100px;
+        left: 130%;
     }
 
     25% {
         opacity: 1;
-        top: 760px;
+        left: 52%;
     }
 
     75% {
         opacity: 1;
-        top: 760px;
+        left: 48%;
     }
 
     100% {
         opacity: 0;
-        top: 1100px;
+        left: -30%;
     }
 }
 
@@ -205,19 +196,5 @@ a:hover {
 
     100% {
         opacity: 0;
-    }
-}
-
-@keyframes textglow {
-    0% {
-        text-shadow: none;
-    }
-
-    50% {
-        text-shadow: 0 0 7px #d568e4;
-    }
-
-    100% {
-        text-shadow: none;
     }
 }

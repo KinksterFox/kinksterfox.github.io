@@ -17,6 +17,35 @@ body {
     height: 100vh;
 }
 
+a,
+.nav {
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    color: #a20bb7;
+    text-decoration: underline;
+
+    animation: linkglow 2s ease-in-out infinite alternate;
+}
+
+@keyframes linkglow {
+    0% {
+        text-shadow: none;
+    }
+
+    50% {
+        text-shadow: 0 0 7px hsl(293, 100%, 25%);
+    }
+
+    100% {
+        text-shadow: none;
+    }
+}
+
 input[type="text"] {
     width: 120px;
     background-color: hsla(0, 0%, 100%, 0.1);
