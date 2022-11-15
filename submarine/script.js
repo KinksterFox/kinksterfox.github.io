@@ -58,7 +58,8 @@ window.addEventListener('load', function () {
         speedXDisplay = Math.round(subP.speed.x * 100) / 100;
         speedYDisplay = Math.round(subP.speed.y * 100) / 100;
 
-        coordinates.innerHTML = `Current XY (${transformXDisplay} , ${transformYDisplay}) Destination: (${destinationXDisplay} , ${destinationYDisplay})`;
+        coordinates.innerHTML = `Current XY: (${transformXDisplay} , ${transformYDisplay})<br> 
+        Destination: (${destinationXDisplay} , ${destinationYDisplay})`;
         speedometer.innerHTML = `Horizontal Speed ${speedXDisplay} <br> Vertical Speed ${speedYDisplay}`;
 
         // Horizontal Movement

@@ -17,6 +17,45 @@ body {
     height: 100vh;
 }
 
+footer {
+    display: flex;
+    justify-content: space-between;
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+a,
+.nav {
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    color: #a20bb7;
+    text-decoration: underline;
+
+    animation: linkglow 2s ease-in-out infinite alternate;
+}
+
+@keyframes linkglow {
+    0% {
+        text-shadow: none;
+    }
+
+    50% {
+        text-shadow: 0 0 7px hsl(293, 100%, 25%);
+    }
+
+    100% {
+        text-shadow: none;
+    }
+}
+
 input[type="text"] {
     width: 120px;
     background-color: hsla(0, 0%, 100%, 0.1);
@@ -59,7 +98,21 @@ input.toggled {
     display: inline;
     position: absolute;
     left: 10px;
-    top: 10px
+    top: 10px;
+    z-index: 255;
+}
+
+#footnote {
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 30px;
+    margin: 0;
+
+    color: hsla(0, 0%, 100%, 0.20);
+}
+
+#footnote::after {
+    content: "ATA 2022 Portfolio \00A9 \0020 KinksterFox";
 }
 
 #bg {

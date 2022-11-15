@@ -1,10 +1,4 @@
-* {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 1em;
-    
-    -webkit-user-select: none;
-    user-select: none;
-}
+@import "/main-style.css";
 
 body {
     margin: auto;
@@ -37,23 +31,19 @@ body {
     color: azure;
     position: absolute;
     transform: translateX(-50%);
+    top: 0;
     left: 50vw;
     width: 100%;
     max-width: 400px;
     height: 100%;
-    max-height: 100px;
+    max-height: 125px;
     border-radius: 0 0 30px 30px;
 }
 
-#coordinates {
-    display: flex;
-    justify-content: center;
-    margin: auto;
-}
-
 .meter {
+    margin: auto;
     margin-top: 8px;
-    margin-left: 40px;
+    max-width: 300px;
 }
 
 #sub {
