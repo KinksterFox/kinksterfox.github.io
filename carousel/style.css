@@ -3,18 +3,29 @@
 * {
     font-family: Michroma;
     -webkit-user-select: none;
-    user-select: none;    
+    user-select: none;
 }
 
 body {
     background-color: transparent;
+    padding: 0;
+    margin: 0;
 }
 
 /* Slideshow container */
 .slideshow-container {
     max-width: 720px;
     position: relative;
-    margin: auto;
+    /* margin: auto; */
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    height: 100vh;
 }
 
 /* Hide the images by default */
