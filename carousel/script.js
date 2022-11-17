@@ -1,5 +1,6 @@
 // DOM Initialization
 const main = document.getElementById('main-container');
+const carousal = document.getElementById('slideshow-container');
 const captions = document.querySelectorAll('.caption-container');
 
 // Fetch JSON
@@ -24,14 +25,14 @@ async function initializeImages() {
 }
 
 // Configs
-let imgPos;
-let glowConfig = {};
-let captionConfig = {};
+const imageConfig = {};
+const glowConfig = {};
+const captionConfig = {};
 
 function setConfig(obj) {
     const config = obj;
 
-    imgPos = config.image.position;
+    imageConfig.position = config.image.position;
 
     glowConfig.visibility = config.image.glow.visibility;
     glowConfig.size = config.image.glow.size;
@@ -41,12 +42,11 @@ function setConfig(obj) {
     captionConfig.color = config.caption.color;
     captionConfig.opacity = config.caption.opacity;
 
-    main.classList.add(imgPos)
+    main.classList.add(imageConfig.position)
 }
 
 // Populate Carousel
 function populateCarousel(obj) {
-    const carousal = document.getElementById('slideshow-container');
     const images = obj.images
 
     for (const image of images) {
