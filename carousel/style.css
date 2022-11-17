@@ -1,28 +1,34 @@
+@import "options.css"; @import "animations.css";
 @import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
 
 * {
     font-family: Michroma;
     -webkit-user-select: none;
     user-select: none;
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    background-color: transparent;
+    background-color: black;
     padding: 0;
     margin: 0;
-}
-
-.center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
     width: 100vw;
     height: 100vh;
 }
 
+main {
+    display: flex;
+
+    width: 100%;
+    height: 100%;
+}
+
 /* Slideshow container */
-.slideshow-container {
+#slideshow-container {
     position: relative;
 }
 
@@ -31,6 +37,7 @@ body {
     display: none;
 }
 
+/* Image */
 img {
     height: 100%;
     max-height: 480px;
@@ -38,14 +45,14 @@ img {
     background-size: contain;
 }
 
-.blur {
+.glow {
     position: absolute;
-    opacity: 75%;
-    filter: blur(35px);
     z-index: -255;
 }
 
+/* Caption text */
 .caption-container {
+    display: flex;
     overflow: hidden;
 
     position: absolute;
@@ -54,57 +61,17 @@ img {
     height: 100%;
 }
 
-/* Caption text */
-.text {
+.caption {
+    position: absolute;
+    width: 100%;
+
     font-size: 1em;
     font-weight: bolder;
     color: white;
     text-shadow: 1px 1px 2px black;
-
-    position: absolute;
-    bottom: 12px;
-    width: 100%;
-    padding: 0;
-    margin: 0;
     text-align: center;
-
-    animation: text-slide 10s ease-in-out forwards;
 }
 
-/* Fading animation */
-.fade {
-    animation-name: fade;
-    animation-duration: 1.5s;
-}
-
-@keyframes fade {
-    from {
-        opacity: .4
-    }
-
-    to {
-        opacity: 1
-    }
-}
-
-@keyframes text-slide {
-    0% {
-        opacity: 0;
-        left: 100%;
-    }
-
-    25% {
-        opacity: 1;
-        left: 5%;
-    }
-
-    75% {
-        opacity: 1;
-        left: -5%;
-    }
-
-    100% {
-        opacity: 0;
-        left: -100%;
-    }
+.text-padding {
+    padding: 12px 0;
 }

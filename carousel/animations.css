@@ -1,0 +1,41 @@
+/* Fading animation */
+.fade {
+    animation: fade 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .1
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+/* Caption Slide */
+.text-slide {
+    animation: text-slide 10s ease-in-out forwards;
+}
+
+@keyframes text-slide {
+    0% {
+        opacity: 0;
+        left: 100%;
+    }
+
+    25% {
+        opacity: 1;
+        left: 5%;
+    }
+
+    75% {
+        opacity: 1;
+        left: -5%;
+    }
+
+    100% {
+        opacity: 0;
+        left: -100%;
+    }
+}

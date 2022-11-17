@@ -1,0 +1,29 @@
+/* Positioning */
+.top {
+    padding-top: 50px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.bottom {
+    padding-bottom: 50px;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.left {
+    padding-left: 50px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.right {
+    padding-right: 50px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.center {
+    justify-content: center;
+    align-items: center;
+}
