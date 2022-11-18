@@ -1,20 +1,31 @@
-/* Fading animation */
-.fade {
-    animation: fade 1.5s;
+/* Image Fade */
+.image-fade {
+    animation: image-fade 10s;
 }
 
-@keyframes fade {
-    from {
-        opacity: .1
+@keyframes image-fade {
+    0% {
+        opacity: 0
     }
 
-    to {
+    5% {
         opacity: 1
     }
+
+    95% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: 0
+    }
 }
 
-/* Caption Slide */
+/* Text Slide */
 .text-slide {
+    position: absolute;
+    width: 100%;
+    text-align: center;
     animation: text-slide 10s ease-in-out forwards;
 }
 

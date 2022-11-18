@@ -1,4 +1,4 @@
-@import "options.css"; @import "animations.css";
+@import "css/positions.css"; @import "css/animations.css";
 @import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
 
 * {
@@ -41,7 +41,6 @@ main {
 img {
     height: 100%;
     max-height: 480px;
-    border-radius: 15px;
     background-size: contain;
 }
 
@@ -62,14 +61,10 @@ img {
 }
 
 .caption {
-    position: absolute;
-    width: 100%;
-
     font-size: 1em;
     font-weight: bolder;
     color: white;
     text-shadow: 1px 1px 2px black;
-    text-align: center;
 }
 
 .text-padding {
