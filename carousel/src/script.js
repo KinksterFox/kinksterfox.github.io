@@ -93,7 +93,9 @@ function populateCarousel(obj) {
             carousal.appendChild(slide);
         }
     }
-    showSlides();
+    window.onload = () => {
+        showSlides();
+    }
 }
 
 // Carousel Functionality
@@ -114,3 +116,7 @@ function showSlides() {
 
     setTimeout(showSlides, config.duration * 1000);
 }
+
+window.addEventListener('load', () => {
+
+})
