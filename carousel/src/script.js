@@ -32,6 +32,19 @@ function populateConfig(obj) {
     const userconfig = obj;
 
     Object.assign(config, userconfig);
+    addFont();
+}
+
+// Add Font Family
+function addFont() {
+    const head = document.head;
+    const fontSheet = document.createElement('link');
+    const font = config.caption.text.fontFamily;
+
+    fontSheet.rel = 'stylesheet';
+    fontSheet.href = `https://fonts.googleapis.com/css?family=${font}`
+
+    head.appendChild(fontSheet);
 }
 
 //Carousel
@@ -82,9 +95,12 @@ function populateCarousel(obj) {
             caption.classList.add('caption', config.caption.text.transition);
             caption.textContent = image.caption;
             caption.style.color = config.caption.text.color;
-            caption.style.animationDuration = `${config.duration}s`
+            caption.style.fontFamily = config.caption.text.fontFamily;
+            caption.style.fontSize = config.caption.text.fontSize;
+            caption.style.fontWeight = config.caption.text.fontWeight;
+            caption.style.animationDuration = `${config.duration}s`;
 
-            if (config.image.glow.visibility == 'on') {
+            if (config.caption.shadow.visibility == 'on') {
                 caption.style.textShadow = `${config.caption.shadow.offset} ${config.caption.shadow.offset} ${config.caption.shadow.size} ${config.caption.shadow.color}`
             }
 
@@ -93,7 +109,7 @@ function populateCarousel(obj) {
             carousal.appendChild(slide);
         }
     }
-        showSlides();
+    showSlides();
 }
 
 // Carousel Functionality

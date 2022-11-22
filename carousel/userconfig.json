@@ -5,7 +5,7 @@
         "transition": "image-slide",
         "border": {
             "visibility": "off",
-            "color": "white",
+            "color": "purple",
             "width": "2px"
         },
         "glow": {
@@ -16,6 +16,9 @@
     },
     "caption": {
         "text": {
+            "fontFamily": "Amatic SC",
+            "fontSize": "1.6em",
+            "fontWeight": "normal",
             "position": "bottom",
             "color": "white",
             "opacity": "100%",

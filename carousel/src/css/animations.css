@@ -47,6 +47,59 @@
     }
 }
 
+/* Image Flip*/
+.image-flip {
+    position: absolute;
+    top: 0;
+    transform: translate(0, -50%);
+    animation: image-flip;
+}
+
+@keyframes image-flip {
+    0% {
+        transform: rotate3d(0, 1, 0, 90deg) translate(0, -50%);
+    }
+
+    25% {
+        transform: rotate3d(0, 1, 0, 0deg) translate(0, -50%);
+    }
+
+    75% {
+        transform: rotate3d(0, 1, 0, 0deg) translate(0, -50%);
+    }
+
+    100% {
+        transform: rotate3d(0, 1, 0, 90deg) translate(0, -50%);
+    }
+}
+
+/* Image Fade */
+.text-fade {
+    animation: text-fade;
+}
+
+@keyframes text-fade {
+    0% {
+        opacity: 0;
+    }
+    
+    10% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
 /* Text Slide */
 .text-slide {
     position: absolute;
@@ -57,6 +110,11 @@
 
 @keyframes text-slide {
     0% {
+        opacity: 0;
+        left: 100%;
+    }
+
+    10% {
         opacity: 0;
         left: 100%;
     }
