@@ -1,23 +1,49 @@
 /* Image Fade */
 .image-fade {
-    animation: image-fade 10s;
+    animation: image-fade;
 }
 
 @keyframes image-fade {
     0% {
-        opacity: 0
+        opacity: 0;
     }
 
     5% {
-        opacity: 1
+        opacity: 1;
     }
 
     95% {
-        opacity: 1
+        opacity: 1;
     }
 
     100% {
-        opacity: 0
+        opacity: 0;
+    }
+}
+
+/* Image Slide */
+.image-slide {
+    position: absolute;
+    top: 0;
+    transform: translate(0, -50%);
+    animation: image-slide;
+}
+
+@keyframes image-slide {
+    0% {
+        transform: translate(-200%, -50%);
+    }
+
+    25% {
+        transform: translate(0, -50%);
+    }
+
+    75% {
+        transform: translate(0, -50%);
+    }
+
+    100% {
+        transform: translate(-200%, -50%);
     }
 }
 
@@ -26,7 +52,7 @@
     position: absolute;
     width: 100%;
     text-align: center;
-    animation: text-slide 10s ease-in-out forwards;
+    animation: text-slide ease-in-out forwards;
 }
 
 @keyframes text-slide {

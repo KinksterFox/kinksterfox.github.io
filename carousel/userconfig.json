@@ -1,8 +1,8 @@
 {
     "image": {
-        "position": "center",
+        "position": "left",
         "borderRadius": "10px",
-        "transition": "image-fade",
+        "transition": "image-slide",
         "border": {
             "visibility": "off",
             "color": "white",

@@ -93,9 +93,7 @@ function populateCarousel(obj) {
             carousal.appendChild(slide);
         }
     }
-    window.onload = () => {
         showSlides();
-    }
 }
 
 // Carousel Functionality
