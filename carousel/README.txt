@@ -3,14 +3,33 @@ Thank you for buying my image carousal for OBS!
 The native slideshow in OBS isn't very customizable and doesn't have all that much flair.
 My image carousal has animations, captions and the added customizability that you would want with it!
 
-- How to use in OBS
+/- How to use in OBS -/
 All you have to do is add the "carousal.html" file in OBS as a browser source.
 You can either paste the file location in the URL or use "Local File" and select it.
 
-- Configuration
-To customize it the way you want it to look you'll have to edit the "userconfig.json".
-After you have made your edits and saved it you have to go to the browser source settings and clear the cache for it at the bottom.
+/- Recommendation for configuring the carousal -/
+For "images.json" and "userconfig.json" I would recommend editing them with "Notepad++".
+It makes the files a lot more readable by color coding text and showing tabs and sections.
 
+https://notepad-plus-plus.org/downloads/
+
+/- Adding images -/
+Place your images in the "images" folder. Filetypes that are guaranteed to work are ".jpeg", ".png", ".gif" and ".svg"
+You add and remove images in the carousal by editing the "images.json" file.
+For each image you need to add this below the next one inside the squared brackets under "images".
+
+        {
+            "caption": "Example text - Jolt",
+            "file": "image.png"
+        },
+
+for "file" you use the exact filename that you gave the image.
+Captions are optional so if you don't want one for an image just leave it empty.
+For the last image leave out the ",".
+
+/- Configuration -/
+To customize the way you want it to look, edit "userconfig.json".
+After you have made your edits and saved it you have to go to the browser source settings and clear the cache for it at the bottom in OBS.
 
 Image:
     position            | Pins the position of the image at the desired location | "top", "bottom", "left", "right"
@@ -19,8 +38,8 @@ Image:
 
     border
         visibility      | Adds a border around the image | "on" or "off"
-        color*          | Border color | You can use the name of the desired color or a hexidecimal code i.e. "black", "red" or "#8113F2"
-        width*          | Thickness of the border | Use a value of percentage or pixels i.e. "50%", "20px"
+        color*          | Border color | You can use the name of the desired color or a hexidecimal code i.e. "purple", "darkred" or "#8113F2"
+        width*          | Thickness of the border | Use a value of pixels i.e. "20px"
 
     glow
         visibility      | Adds a glow around the image. The colors of the glow are based on the image | "on" or "off"
@@ -45,5 +64,4 @@ caption
 
 duration                | How long an image stays before it transitions to the next one in seconds
 
-*
-You can use CSS values in these properties
+*You can use CSS values in these properties
