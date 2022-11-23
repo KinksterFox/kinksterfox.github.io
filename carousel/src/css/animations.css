@@ -1,6 +1,8 @@
 /* Image Fade */
 .image-fade {
-    animation: image-fade;
+    opacity: 0;
+    animation-delay: 0.5s;
+    animation: image-fade ease-in-out forwards;
 }
 
 @keyframes image-fade {
@@ -25,13 +27,14 @@
 .image-slide {
     position: absolute;
     top: 0;
-    transform: translate(0, -50%);
-    animation: image-slide;
+    transform: translate(-250%, -50%);
+    animation-delay: 0.5s;
+    animation: image-slide ease-in-out forwards;
 }
 
 @keyframes image-slide {
     0% {
-        transform: translate(-200%, -50%);
+        transform: translate(-250%, -50%);
     }
 
     25% {
@@ -43,7 +46,7 @@
     }
 
     100% {
-        transform: translate(-200%, -50%);
+        transform: translate(-250%, -50%);
     }
 }
 
@@ -51,8 +54,9 @@
 .image-flip {
     position: absolute;
     top: 0;
-    transform: translate(0, -50%);
-    animation: image-flip;
+    transform: rotate3d(0, 1, 0, 90deg) translate(0, -50%);
+    animation-delay: 0.5s;
+    animation: image-flip ease-in-out forwards;
 }
 
 @keyframes image-flip {
@@ -75,15 +79,13 @@
 
 /* Image Fade */
 .text-fade {
-    animation: text-fade;
+    opacity: 0;
+    animation-delay: 0.5s;
+    animation: text-fade ease-in-out forwards;
 }
 
 @keyframes text-fade {
     0% {
-        opacity: 0;
-    }
-    
-    10% {
         opacity: 0;
     }
 
@@ -104,17 +106,15 @@
 .text-slide {
     position: absolute;
     width: 100%;
+    left: 100%;
     text-align: center;
+    opacity: 0;
+    animation-delay: 0.5s;
     animation: text-slide ease-in-out forwards;
 }
 
 @keyframes text-slide {
     0% {
-        opacity: 0;
-        left: 100%;
-    }
-
-    10% {
         opacity: 0;
         left: 100%;
     }

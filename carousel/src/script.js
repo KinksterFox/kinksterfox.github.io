@@ -28,9 +28,7 @@ initializeImages();
 // Config
 const config = {};
 
-function populateConfig(obj) {
-    const userconfig = obj;
-
+function populateConfig(userconfig) {
     Object.assign(config, userconfig);
     addFont();
 }
