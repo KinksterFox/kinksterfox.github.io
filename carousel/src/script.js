@@ -4,7 +4,7 @@ const carousal = document.getElementById('slideshow-container');
 
 // Fetch JSON
 async function initializeConfig() {
-    const requestUserConfig = './userConfig.json';
+    const requestUserConfig = './userconfig.json';
     const request = new Request(requestUserConfig);
 
     const response = await fetch(request);
