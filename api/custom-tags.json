@@ -1,4 +1,20 @@
-  { 
-    "login": "KinksterFox", 
-    "custom_tag": "Lady"
+[
+  {
+    "kinksterfox": {
+      "login": "KinksterFox",
+      "custom_tag": "Lady"
+    }
+  },
+  {
+    "hexdawnwing": {
+      "login": "HexDawnwing",
+      "custom_tag": "Seiso"
+    }
+  },
+  {
+    "wizard_jace": {
+      "login": "Wizard_Jace",
+      "custom_tag": "Cutie"
+    }
   }
+]
