@@ -1,26 +1,18 @@
 [
-  {
-    "kinksterfox": {
+    {
       "login": "KinksterFox",
       "custom_tag": "Lady"
-    }
-  },
-  {
-    "hexdawnwing": {
+    },
+    {
       "login": "HexDawnwing",
       "custom_tag": "Seiso"
-    }
-  },
-  {
-    "wizard_jace": {
+    },
+    {
       "login": "Wizard_Jace",
       "custom_tag": "Cutie"
-    }
-  },
-  {
-    "gekkoui": {
+    },
+    {
       "login": "gekkoui",
       "custom_tag": "♥ Waifu"
     }
-  }
 ]
