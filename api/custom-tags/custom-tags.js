@@ -1,5 +1,5 @@
 const TAG_API = {
-  url: "https://github.kinksterfox.com/api/custom-tags.json",
+  url: (username) => `https://github.kinksterfox.com/api/custom-tags/${username}-tags.json`,
   tag: "tag",
 };
 
