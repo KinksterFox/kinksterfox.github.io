@@ -1,18 +1,18 @@
 [
     {
-      "channelname": "kinksterfox",
+      "nick": "kinksterfox",
       "custom_tag": "Lady"
     },
     {
-      "channelname": "hexdawnwing",
+      "nick": "hexdawnwing",
       "custom_tag": "Seiso"
     },
     {
-      "channelname": "wizard_jace",
+      "nick": "wizard_jace",
       "custom_tag": "Cutie"
     },
     {
-      "channelname": "gekkouai",
+      "nick": "gekkouai",
       "custom_tag": "♥ Waifu"
     }
 ]
